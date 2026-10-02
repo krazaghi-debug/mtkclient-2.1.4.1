@@ -1,0 +1,1103 @@
+mtk.py:4:import argparse
+mtk.py:5:from mtkclient.Library.mtk_main import Main, metamodes
+mtk.py:13:    "rl": "Read all partitions from flash to a directory",
+mtk.py:17:    "fs": "Mount the device as a FUSE filesystem",
+mtk.py:18:    "w": "Write partition from filename",
+mtk.py:19:    "wf": "Write flash from filename",
+mtk.py:20:    "wl": "Write partitions from directory path to flash",
+mtk.py:21:    "wo": "Write flash starting at offset from filename",
+mtk.py:25:    "footer": "Read crypto footer from flash",
+mtk.py:57:    parser_rl = subparsers.add_parser("rl", help="Read all partitions from flash to a directory")
+mtk.py:61:    parser_fs = subparsers.add_parser("fs", help="Mount the device as a FUSE filesystem")
+mtk.py:62:    parser_w = subparsers.add_parser("w", help="Write partition from filename")
+mtk.py:63:    parser_wf = subparsers.add_parser("wf", help="Write flash from filename")
+mtk.py:64:    parser_wl = subparsers.add_parser("wl", help="Write partitions from directory path to flash")
+mtk.py:65:    parser_wo = subparsers.add_parser("wo", help="Write flash starting at offset from filename")
+mtk.py:69:    parser_footer = subparsers.add_parser("footer", help="Read crypto footer from flash")
+mtk.py:88:    da_cmds = parser_da.add_subparsers(dest='subcmd', help='Commands: peek poke keys unlock memdump seccfg rpmb efuse')
+mtk.py:90:    da_efuse = da_cmds.add_parser("efuse", help="Read efuses")
+mtk.py:91:    da_efuse.add_argument('--preloader', help='Set the preloader filename for dram config')
+mtk.py:92:    da_efuse.add_argument('--loader', type=str, help='Use specific loader, disable autodetection')
+mtk.py:113:    da_rpmb_w.add_argument('filename', type=str, help="Filename to write from")
+mtk.py:127:    da_peek.add_argument('address', type=str, help="Address to read from (hex value)")
+mtk.py:149:    da_poke.add_argument('address', type=str, help="Address to read from (hex value)")
+mtk.py:152:    da_poke.add_argument('--filename', type=str, help="Filename to read data from")
+mtk.py:179:    parser_script.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:203:    parser_printgpt.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:230:    parser_gpt.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:261:    parser_r.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:291:    parser_rl.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:316:    parser_rf.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:352:    parser_rs.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:388:    parser_ro.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:409:    parser_fs.add_argument('mountpoint', help='Directory to mount the FUSE filesystem in')
+mtk.py:427:    parser_w.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:459:    parser_wf.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:489:    parser_wl.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:523:    parser_wo.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:546:    parser_e.add_argument('partitionname', help='Partitionname to erase from flash')
+mtk.py:555:    parser_e.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:578:    parser_es.add_argument('partitionname', help='Partitionname to erase from flash')
+mtk.py:588:    parser_es.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:621:    parser_ess.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:654:    parser_footer.add_argument('--gpt_file', help='Use a gpt file instead of trying to read gpt from flash')
+mtk.py:806:    parser_peek.add_argument('address', help='Address to read from memory')
+mtk.py:807:    parser_peek.add_argument('length', help='Bytes to read from memory')
+mtkclient\config\brom_config.py:7:class Efuse:
+mtkclient\config\brom_config.py:10:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:18:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:27:            self.efuses = [base+0x20, base+0x30, base+0x38, base+0x40, base+0x44,
+mtkclient\config\brom_config.py:43:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:52:            self.efuses = [0x40, 0x100000, base + 0x20, base + 0x30, base + 0x38,
+mtkclient\config\brom_config.py:59:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:65:            self.efuses = [
+mtkclient\config\brom_config.py:101:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:111:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:124:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:134:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:143:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:155:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:163:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:172:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:184:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:194:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:212:            self.efuses = [base + 0x20, base + 0x30, base + 0x38, base + 0x40, base + 0x44,
+mtkclient\config\brom_config.py:231:                 efuse_addr=None):
+mtkclient\config\brom_config.py:259:        self.efuse_addr = efuse_addr
+mtkclient\config\brom_config.py:471:        efuse_addr=0x10009000,
+mtkclient\config\brom_config.py:510:        efuse_addr=0x10009000,
+mtkclient\config\brom_config.py:574:                       efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:599:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:642:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:664:                       efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:690:        efuse_addr=0x11c50000,
+mtkclient\config\brom_config.py:714:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:742:        efuse_addr=0x11c00000,
+mtkclient\config\brom_config.py:759:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:782:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:834:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:860:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:886:        efuse_addr=0x10450000,
+mtkclient\config\brom_config.py:940:        efuse_addr=0x11c50000,
+mtkclient\config\brom_config.py:968:        efuse_addr=0x11f10000,
+mtkclient\config\brom_config.py:996:        efuse_addr=0x11c50000,
+mtkclient\config\brom_config.py:1024:        efuse_addr=0x11ce0000,
+mtkclient\config\brom_config.py:1052:        efuse_addr=0x11f10000,
+mtkclient\config\brom_config.py:1090:                      efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1116:        efuse_addr=0x11cb0000,
+mtkclient\config\brom_config.py:1144:                      efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1169:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:1195:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:1221:        efuse_addr=0x11F10000,
+mtkclient\config\brom_config.py:1248:        efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1275:                      efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1303:        efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1330:        efuse_addr=0x11f10000,
+mtkclient\config\brom_config.py:1359:        efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1387:        efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1471:        efuse_addr=0x11C10000,
+mtkclient\config\brom_config.py:1499:        # efuse_addr=0x11C10000,
+mtkclient\config\brom_config.py:1527:        # efuse_addr=0x11C10000,
+mtkclient\config\brom_config.py:1601:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:1625:                       efuse_addr=0x10009000,
+mtkclient\config\brom_config.py:1650:        efuse_addr=0x10009000,
+mtkclient\config\brom_config.py:1702:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:1727:        efuse_addr=0x11c10000,
+mtkclient\config\brom_config.py:1754:        efuse_addr=0x11c50000,
+mtkclient\config\brom_config.py:1778:        efuse_addr=0x10009000,
+mtkclient\config\brom_config.py:1825:        efuse_addr=0x10206000,
+mtkclient\config\brom_config.py:1849:        efuse_addr=0x11c10000,
+mtkclient\config\mtk_config.py:1:import os
+mtkclient\config\mtk_config.py:2:import sys
+mtkclient\config\mtk_config.py:3:import logging
+mtkclient\config\mtk_config.py:4:from binascii import hexlify
+mtkclient\config\mtk_config.py:5:from mtkclient.Library.utils import LogBase
+mtkclient\config\mtk_config.py:6:from mtkclient.Library.settings import HwParam
+mtkclient\config\mtk_config.py:7:from mtkclient.config.brom_config import Chipconfig, DAmodes, hwconfig
+mtkclient\config\mtk_config.py:10:    from PySide6.QtCore import QObject
+mtkclient\config\mtk_config.py:11:except ImportError:
+mtkclient\config\payloads.py:2:import os
+mtkclient\gui\eraseFlashPartitions.py:1:import sys
+mtkclient\gui\eraseFlashPartitions.py:2:import mock
+mtkclient\gui\eraseFlashPartitions.py:4:from PySide6.QtCore import QObject, Signal
+mtkclient\gui\eraseFlashPartitions.py:5:from mtkclient.gui.toolkit import FDialog
+mtkclient\gui\eraseFlashPartitions.py:6:from mtkclient.gui.toolkit import trap_exc_during_debug, asyncThread
+mtkclient\gui\main_gui.py:4:## Form generated from reading UI file 'main_gui.ui'
+mtkclient\gui\main_gui.py:11:from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+mtkclient\gui\main_gui.py:14:from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+mtkclient\gui\main_gui.py:19:from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QCheckBox, QFrame,
+mtkclient\gui\main_gui.py:183:        self.writeselectfromdir = QPushButton(self.writetab)
+mtkclient\gui\main_gui.py:184:        self.writeselectfromdir.setObjectName(u"writeselectfromdir")
+mtkclient\gui\main_gui.py:186:        self.horizontalLayout_8.addWidget(self.writeselectfromdir)
+mtkclient\gui\main_gui.py:792:        self.writeselectfromdir.setText(QCoreApplication.translate("MainWindow", u"Select from directory", None))
+mtkclient\gui\readFlashPartitions.py:1:import os
+mtkclient\gui\readFlashPartitions.py:2:import sys
+mtkclient\gui\readFlashPartitions.py:3:import mock
+mtkclient\gui\readFlashPartitions.py:4:from PySide6.QtCore import QObject, Signal
+mtkclient\gui\readFlashPartitions.py:5:from mtkclient.gui.toolkit import convert_size, FDialog, trap_exc_during_debug, asyncThread
+mtkclient\gui\toolkit.py:1:import math
+mtkclient\gui\toolkit.py:2:import os
+mtkclient\gui\toolkit.py:3:import sys
+mtkclient\gui\toolkit.py:4:import time
+mtkclient\gui\toolkit.py:5:import datetime as dt
+mtkclient\gui\toolkit.py:6:from PySide6.QtCore import Signal, QThread, Slot, Property
+mtkclient\gui\toolkit.py:7:from PySide6.QtWidgets import QFileDialog, QCheckBox
+mtkclient\gui\toolkit.py:8:from traceback import print_exception
+mtkclient\gui\toolkit.py:9:from mtkclient.config.payloads import PathConfig
+mtkclient\gui\toolkit.py:19:            finishtime = dt.datetime.fromtimestamp(finishtime).strftime("%H:%M:%S")  # in time
+mtkclient\gui\toolsMenu.py:1:from PySide6.QtCore import Slot, QObject, Signal
+mtkclient\gui\toolsMenu.py:2:from PySide6.QtWidgets import QTableWidgetItem
+mtkclient\gui\toolsMenu.py:3:from mtkclient.gui.toolkit import trap_exc_during_debug, asyncThread, FDialog
+mtkclient\gui\toolsMenu.py:4:from mtkclient.Library.DA.mtk_da_handler import DaHandler
+mtkclient\gui\toolsMenu.py:5:import os
+mtkclient\gui\toolsMenu.py:6:import sys
+mtkclient\gui\toolsMenu.py:7:import json
+mtkclient\gui\writeFlashPartitions.py:1:import os
+mtkclient\gui\writeFlashPartitions.py:2:import sys
+mtkclient\gui\writeFlashPartitions.py:3:import mock
+mtkclient\gui\writeFlashPartitions.py:4:from PySide6.QtCore import QObject, Signal
+mtkclient\gui\writeFlashPartitions.py:5:from mtkclient.gui.toolkit import trap_exc_during_debug, asyncThread, FDialog
+mtkclient\Library\asmtools.py:4:from capstone import (Cs, CS_MODE_BIG_ENDIAN, CS_MODE_LITTLE_ENDIAN,
+mtkclient\Library\asmtools.py:10:from keystone import (Ks, KS_MODE_BIG_ENDIAN, KS_MODE_LITTLE_ENDIAN, KS_ARCH_ARM, KS_MODE_THUMB, KS_MODE_ARM,
+mtkclient\Library\asmtools.py:17:import argparse
+mtkclient\Library\asmtools.py:213:            aa = disasm(bytes.fromhex(args.inp), cpu, mode, args.bigendian, len(args.inp))
+mtkclient\Library\Auth\sla.py:5:from Cryptodome.Hash import SHA256
+mtkclient\Library\Auth\sla.py:6:from Cryptodome.Util.number import bytes_to_long, ceil_div, size, long_to_bytes
+mtkclient\Library\Auth\sla.py:7:from Cryptodome.Cipher import PKCS1_OAEP
+mtkclient\Library\Auth\sla.py:8:from Cryptodome.PublicKey import RSA
+mtkclient\Library\Auth\sla.py:26:    d = bytes_to_long(bytes.fromhex(d))
+mtkclient\Library\Auth\sla.py:27:    e = bytes_to_long(bytes.fromhex(e))
+mtkclient\Library\Auth\sla.py:37:    d_da = bytes_to_long(bytes.fromhex(d))
+mtkclient\Library\Auth\sla.py:38:    n_da = bytes_to_long(bytes.fromhex(n))
+mtkclient\Library\Auth\sla.py:39:    e_da = bytes_to_long(bytes.fromhex(e))
+mtkclient\Library\Connection\devicehandler.py:4:import inspect
+mtkclient\Library\Connection\devicehandler.py:5:import traceback
+mtkclient\Library\Connection\devicehandler.py:6:import logging
+mtkclient\Library\Connection\devicehandler.py:7:import os
+mtkclient\Library\Connection\devicehandler.py:8:from binascii import hexlify
+mtkclient\Library\Connection\devicehandler.py:9:from mtkclient.Library.utils import LogBase, unpack
+mtkclient\Library\Connection\seriallib.py:4:import time
+mtkclient\Library\Connection\seriallib.py:5:import sys
+mtkclient\Library\Connection\seriallib.py:6:import logging
+mtkclient\Library\Connection\seriallib.py:7:from mtkclient.Library.DA.xml.xml_param import max_xml_data_length
+mtkclient\Library\Connection\seriallib.py:8:import serial
+mtkclient\Library\Connection\seriallib.py:9:import serial.tools.list_ports
+mtkclient\Library\Connection\seriallib.py:10:import inspect
+mtkclient\Library\Connection\seriallib.py:11:from mtkclient.Library.Connection.devicehandler import DeviceClass
+mtkclient\Library\Connection\seriallib.py:13:    import termios
+mtkclient\Library\Connection\usblib.py:4:import logging
+mtkclient\Library\Connection\usblib.py:5:import os
+mtkclient\Library\Connection\usblib.py:6:import sys
+mtkclient\Library\Connection\usblib.py:7:import usb.core  # pyusb
+mtkclient\Library\Connection\usblib.py:8:import usb.util
+mtkclient\Library\Connection\usblib.py:9:import time
+mtkclient\Library\Connection\usblib.py:10:import inspect
+mtkclient\Library\Connection\usblib.py:11:import traceback
+mtkclient\Library\Connection\usblib.py:12:import array
+mtkclient\Library\Connection\usblib.py:13:import usb.backend.libusb0
+mtkclient\Library\Connection\usblib.py:14:import usb.backend.libusb1
+mtkclient\Library\Connection\usblib.py:15:from struct import pack, calcsize
+mtkclient\Library\Connection\usblib.py:16:from enum import Enum
+mtkclient\Library\Connection\usblib.py:17:from binascii import hexlify
+mtkclient\Library\Connection\usblib.py:18:from ctypes import c_void_p, c_int
+mtkclient\Library\Connection\usblib.py:20:from mtkclient.Library.DA.xml.xml_param import max_xml_data_length
+mtkclient\Library\Connection\usblib.py:21:from mtkclient.Library.utils import write_object
+mtkclient\Library\Connection\usblib.py:22:from mtkclient.Library.Connection.devicehandler import DeviceClass
+mtkclient\Library\Connection\usblib.py:40:# From Wireless USB 1.0
+mtkclient\Library\Connection\usblib.py:704:        # do_reserve from f_mass_storage.c
+mtkclient\Library\Connection\usblib.py:709:            1: Enable adb daemon from mass_storage
+mtkclient\Library\Connection\usblib.py:710:            2: Disable adb daemon from mass_storage
+mtkclient\Library\Connection\usblib.py:725:        # ums_ctrlrequest from f_mass_storage.c
+mtkclient\Library\Connection\usblib.py:770:                common_cmnd[3]->1: Enable adb daemon from mass_storage
+mtkclient\Library\Connection\usblib.py:771:                common_cmnd[3]->0: Disable adb daemon from mass_storage
+mtkclient\Library\Connection\usbscsi.py:4:import argparse
+mtkclient\Library\Connection\usbscsi.py:5:from mtkclient.Library.Connection.usblib import Scsi
+mtkclient\Library\cqdma.py:4:import logging, os
+mtkclient\Library\cqdma.py:5:from struct import pack, unpack
+mtkclient\Library\cqdma.py:6:from mtkclient.Library.utils import LogBase
+mtkclient\Library\cryptutils.py:5:import hashlib
+mtkclient\Library\cryptutils.py:6:from Cryptodome.Cipher import AES
+mtkclient\Library\cryptutils.py:7:from Cryptodome.Util import Counter
+mtkclient\Library\cryptutils.py:8:from Cryptodome.Hash import CMAC
+mtkclient\Library\cryptutils.py:9:from Cryptodome.Util.number import long_to_bytes, bytes_to_long
+mtkclient\Library\cryptutils.py:10:from binascii import hexlify
+mtkclient\Library\cryptutils.py:11:import hmac
+mtkclient\Library\cryptutils.py:344:            msg = bytes.fromhex(msg)
+mtkclient\Library\cryptutils.py:345:            salt = bytes.fromhex(salt)
+mtkclient\Library\cryptutils.py:365:            x = bytes.fromhex(h)
+mtkclient\Library\cryptutils.py:376:        #    return int.from_bytes(X, byteorder='big')
+mtkclient\Library\cryptutils.py:410:                d = bytes.fromhex(d)
+mtkclient\Library\cryptutils.py:413:                n = bytes.fromhex(n)
+mtkclient\Library\cryptutils.py:450:            # EM = bytes.fromhex(hex(EM)[2:])
+mtkclient\Library\DA\daconfig.py:4:import logging
+mtkclient\Library\DA\daconfig.py:5:import os
+mtkclient\Library\DA\daconfig.py:6:from struct import unpack
+mtkclient\Library\DA\daconfig.py:7:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\DA\daconfig.py:8:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\daconfig.py:9:from mtkclient.config.brom_config import DAmodes
+mtkclient\Library\DA\daconfig.py:10:from mtkclient.Library.utils import Structhelper
+mtkclient\Library\DA\daconfig.py:267:    from mtkclient.Library.mtk_class import Mtk
+mtkclient\Library\DA\daconfig.py:268:    from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\DA\legacy\dalegacy_flash_param.py:1:from binascii import hexlify
+mtkclient\Library\DA\legacy\dalegacy_flash_param.py:2:from mtkclient.Library.utils import Structhelper
+mtkclient\Library\DA\legacy\dalegacy_flash_param.py:3:from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\DA\legacy\dalegacy_flash_param.py:4:from struct import pack
+mtkclient\Library\DA\legacy\dalegacy_iot_flash_param.py:1:from binascii import hexlify
+mtkclient\Library\DA\legacy\dalegacy_iot_flash_param.py:2:from mtkclient.Library.utils import Structhelper
+mtkclient\Library\DA\legacy\dalegacy_iot_flash_param.py:3:from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\DA\legacy\dalegacy_iot_flash_param.py:4:from struct import pack
+mtkclient\Library\DA\legacy\dalegacy_lib.py:4:import logging
+mtkclient\Library\DA\legacy\dalegacy_lib.py:5:import os
+mtkclient\Library\DA\legacy\dalegacy_lib.py:6:import sys
+mtkclient\Library\DA\legacy\dalegacy_lib.py:7:import time
+mtkclient\Library\DA\legacy\dalegacy_lib.py:8:from struct import pack, unpack
+mtkclient\Library\DA\legacy\dalegacy_lib.py:9:from binascii import hexlify
+mtkclient\Library\DA\legacy\dalegacy_lib.py:11:from mtkclient.Library.DA.legacy.dalegacy_flash_param import NandInfo64, NorInfo, NandInfo32, EmmcInfo, NandInfo2, \
+mtkclient\Library\DA\legacy\dalegacy_lib.py:14:from mtkclient.Library.DA.legacy.dalegacy_iot_flash_param import NorInfoIoT, NandInfoIoT, EmmcInfoIoT, ConfigInfoIoT
+mtkclient\Library\DA\legacy\dalegacy_lib.py:15:from mtkclient.Library.DA.legacy.dalegacy_param import PortValues, Rsp, Cmd
+mtkclient\Library\DA\legacy\dalegacy_lib.py:16:from mtkclient.Library.utils import LogBase, logsetup, Structhelper
+mtkclient\Library\DA\legacy\dalegacy_lib.py:17:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\legacy\dalegacy_lib.py:18:from mtkclient.Library.DA.daconfig import DaStorage, EmmcPartitionType
+mtkclient\Library\DA\legacy\dalegacy_lib.py:19:from mtkclient.Library.partition import Partition
+mtkclient\Library\DA\legacy\dalegacy_lib.py:20:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\legacy\dalegacy_lib.py:21:from mtkclient.Library.DA.legacy.extension.legacy import LegacyExt
+mtkclient\Library\DA\legacy\dalegacy_lib.py:22:from mtkclient.Library.thread_handling import writedata
+mtkclient\Library\DA\legacy\dalegacy_lib.py:23:from queue import Queue
+mtkclient\Library\DA\legacy\dalegacy_lib.py:24:from threading import Thread
+mtkclient\Library\DA\legacy\dalegacy_lib.py:291:        errorcode = int.from_bytes(buffer, 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:323:            errorval = int.from_bytes(returnval, 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:481:        int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:483:        int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:494:                nor_addr = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:495:                nor_len = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:496:                nand_addr = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:497:                nand_len = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:498:                emmc_addr = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:499:                emmc_len = int.from_bytes(self.usbread(4), 'big')
+mtkclient\Library\DA\legacy\dalegacy_lib.py:538:            self.info(f"Uploading legacy stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\DA\legacy\dalegacy_lib.py:647:            self.info(f"Uploading legacy stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\DA\legacy\dalegacy_lib.py:730:            int.from_bytes(self.usbread(4), 'little')  # 0xa20c0000 - 0xC0000a5
+mtkclient\Library\DA\legacy\dalegacy_param.py:30:    # EFUSE
+mtkclient\Library\DA\legacy\extension\legacy.py:1:import os
+mtkclient\Library\DA\legacy\extension\legacy.py:2:import sys
+mtkclient\Library\DA\legacy\extension\legacy.py:3:from struct import unpack, pack
+mtkclient\Library\DA\legacy\extension\legacy.py:5:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\legacy\extension\legacy.py:6:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\legacy\extension\legacy.py:7:from mtkclient.Library.Hardware.hwcrypto import CryptoSetup, HwCrypto
+mtkclient\Library\DA\legacy\extension\legacy.py:8:from mtkclient.Library.utils import LogBase, logsetup, find_binary
+mtkclient\Library\DA\legacy\extension\legacy.py:9:from mtkclient.Library.Hardware.seccfg import SecCfgV4, SecCfgV3
+mtkclient\Library\DA\legacy\extension\legacy.py:10:from binascii import hexlify
+mtkclient\Library\DA\legacy\extension\legacy.py:11:from mtkclient.Library.utils import MTKTee
+mtkclient\Library\DA\legacy\extension\legacy.py:12:import hashlib
+mtkclient\Library\DA\legacy\extension\legacy.py:13:import json
+mtkclient\Library\DA\legacy\extension\legacy.py:76:            cmd_f0 = bytes.fromhex(
+mtkclient\Library\DA\legacy\extension\legacy.py:217:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\legacy\extension\legacy.py:218:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\legacy\extension\legacy.py:323:                self.decrypt_tee(val["filename"], bytes.fromhex(val["data"]), bytes.fromhex(val["data2"]))
+mtkclient\Library\DA\mtk_daloader.py:4:import json
+mtkclient\Library\DA\mtk_daloader.py:5:import logging
+mtkclient\Library\DA\mtk_daloader.py:6:import os
+mtkclient\Library\DA\mtk_daloader.py:7:import hashlib
+mtkclient\Library\DA\mtk_daloader.py:8:from binascii import hexlify
+mtkclient\Library\DA\mtk_daloader.py:10:from mtkclient.Library.DA.xml.xml_lib import DAXML
+mtkclient\Library\DA\mtk_daloader.py:11:from mtkclient.Library.utils import LogBase, logsetup, Progress
+mtkclient\Library\DA\mtk_daloader.py:12:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\mtk_daloader.py:13:from mtkclient.Library.DA.daconfig import DAconfig
+mtkclient\Library\DA\mtk_daloader.py:14:from mtkclient.Library.DA.legacy.dalegacy_lib import DALegacy
+mtkclient\Library\DA\mtk_daloader.py:15:from mtkclient.Library.DA.legacy.dalegacy_flash_param import NorInfo, EmmcInfo, SdcInfo, NandInfo64
+mtkclient\Library\DA\mtk_daloader.py:16:from mtkclient.Library.DA.xflash.xflash_lib import DAXFlash
+mtkclient\Library\DA\mtk_daloader.py:17:from mtkclient.config.brom_config import DAmodes
+mtkclient\Library\DA\mtk_daloader.py:18:from mtkclient.Library.DA.xflash.extension.xflash import XFlashExt
+mtkclient\Library\DA\mtk_daloader.py:19:from mtkclient.Library.DA.legacy.extension.legacy import LegacyExt
+mtkclient\Library\DA\mtk_daloader.py:20:from mtkclient.Library.DA.xml.extension.v6 import XmlFlashExt
+mtkclient\Library\DA\mtk_daloader.py:21:from mtkclient.Library.settings import HwParam
+mtkclient\Library\DA\mtk_daloader.py:145:                self.config.meid = bytes.fromhex(config["meid"])
+mtkclient\Library\DA\mtk_daloader.py:147:                self.config.socid = bytes.fromhex(config["socid"])
+mtkclient\Library\DA\mtk_daloader.py:380:    def readfuses(self):
+mtkclient\Library\DA\mtk_daloader.py:386:            return self.xmlft.readfuses()
+mtkclient\Library\DA\mtk_da_handler.py:1:import os
+mtkclient\Library\DA\mtk_da_handler.py:2:import time
+mtkclient\Library\DA\mtk_da_handler.py:3:import sys
+mtkclient\Library\DA\mtk_da_handler.py:4:import logging
+mtkclient\Library\DA\mtk_da_handler.py:5:from struct import pack, unpack
+mtkclient\Library\DA\mtk_da_handler.py:6:from binascii import hexlify
+mtkclient\Library\DA\mtk_da_handler.py:7:from mtkclient.Library.utils import LogBase, logsetup, getint
+mtkclient\Library\DA\mtk_da_handler.py:8:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\mtk_da_handler.py:9:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\mtk_da_handler.py:10:from mtkclient.Library.utils import Progress
+mtkclient\Library\DA\mtk_da_handler.py:11:from mtkclient.config.brom_config import Efuse, DAmodes
+mtkclient\Library\DA\mtk_da_handler.py:12:from mtkclient.Library.Filesystem.mtkdafs import MtkDaFS
+mtkclient\Library\DA\mtk_da_handler.py:14:    from fuse import FUSE
+mtkclient\Library\DA\mtk_da_handler.py:15:except ImportError:
+mtkclient\Library\DA\mtk_da_handler.py:16:    FUSE = None
+mtkclient\Library\DA\mtk_da_handler.py:134:                                "Device is in BROM mode. No preloader given, trying to dump preloader from ram.")
+mtkclient\Library\DA\mtk_da_handler.py:137:                                self.error("Failed to dump preloader from ram, provide a valid one " +
+mtkclient\Library\DA\mtk_da_handler.py:143:                            self.error("Failed to dump preloader from ram, provide a valid one " +
+mtkclient\Library\DA\mtk_da_handler.py:174:            print(f"Dumped GPT from to {sfilename}")
+mtkclient\Library\DA\mtk_da_handler.py:338:                            print(f"Dumped footer from {partition.name} as {filename}.")
+mtkclient\Library\DA\mtk_da_handler.py:581:    def da_efuse(self):
+mtkclient\Library\DA\mtk_da_handler.py:582:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\mtk_da_handler.py:583:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\mtk_da_handler.py:585:            efuseconfig = Efuse(base, hwcode)
+mtkclient\Library\DA\mtk_da_handler.py:586:            for idx in range(len(efuseconfig.efuses)):
+mtkclient\Library\DA\mtk_da_handler.py:587:                addr = efuseconfig.efuses[idx]
+mtkclient\Library\DA\mtk_da_handler.py:592:                self.info(f"EFuse Idx {hex(idx)}: {data.hex()}")
+mtkclient\Library\DA\mtk_da_handler.py:627:            self.info(f"Successfully wrote data from {hex(addr)}, length {hex(length)} to {filename}")
+mtkclient\Library\DA\mtk_da_handler.py:630:                f"Data read from {hex(addr)}, length: {hex(length)}:\n{hexlify(retval).decode('utf-8')}\n")
+mtkclient\Library\DA\mtk_da_handler.py:640:                data = bytes.fromhex(data)
+mtkclient\Library\DA\mtk_da_handler.py:700:            if FUSE is not None:
+mtkclient\Library\DA\mtk_da_handler.py:701:                print(f'Mounting FUSE fs at: {args.mountpoint}...')
+mtkclient\Library\DA\mtk_da_handler.py:702:                fs = FUSE(MtkDaFS(self, rw=args.rw), mountpoint=args.mountpoint, foreground=True, allow_other=True,
+mtkclient\Library\DA\mtk_da_handler.py:777:                print("Available da cmds are: [peek, poke, generatekeys, seccfg, rpmb, meta, memdump, efuse, dumpbrom]")
+mtkclient\Library\DA\mtk_da_handler.py:794:                efuseaddr = 0x11C10000
+mtkclient\Library\DA\mtk_da_handler.py:795:                efusesize = 0x10000
+mtkclient\Library\DA\mtk_da_handler.py:808:                self.info(f"Dumping efuse at {hex(efuseaddr)}, size at {hex(efusesize)}...")
+mtkclient\Library\DA\mtk_da_handler.py:809:                self.da_peek(addr=efuseaddr, length=efusesize,
+mtkclient\Library\DA\mtk_da_handler.py:810:                             filename=os.path.join(directory, "dump_efuse.bin"))
+mtkclient\Library\DA\mtk_da_handler.py:825:            elif subcmd == "efuse":
+mtkclient\Library\DA\mtk_da_handler.py:826:                self.da_efuse()
+mtkclient\Library\DA\xflash\extension\xflash.py:1:import os
+mtkclient\Library\DA\xflash\extension\xflash.py:2:from struct import unpack, pack
+mtkclient\Library\DA\xflash\extension\xflash.py:4:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\xflash\extension\xflash.py:5:from mtkclient.config.brom_config import Efuse
+mtkclient\Library\DA\xflash\extension\xflash.py:6:from mtkclient.Library.error import ErrorHandler, ErrorCodes_XFlash
+mtkclient\Library\DA\xflash\extension\xflash.py:7:from mtkclient.Library.Hardware.hwcrypto import CryptoSetup, HwCrypto
+mtkclient\Library\DA\xflash\extension\xflash.py:8:from mtkclient.Library.utils import LogBase, Progress, logsetup, find_binary
+mtkclient\Library\DA\xflash\extension\xflash.py:9:from mtkclient.Library.Hardware.seccfg import SecCfgV3, SecCfgV4
+mtkclient\Library\DA\xflash\extension\xflash.py:10:from mtkclient.Library.utils import MTKTee
+mtkclient\Library\DA\xflash\extension\xflash.py:11:import json
+mtkclient\Library\DA\xflash\extension\xflash.py:103:                g_ufs_hba = int.from_bytes(self.da2[ptr_g_ufs_hba + 10:ptr_g_ufs_hba + 10 + 4], 'little')
+mtkclient\Library\DA\xflash\extension\xflash.py:108:                    g_ufs_hba = int.from_bytes(self.da2[ptr_g_ufs_hba + 8:ptr_g_ufs_hba + 8 + 4], 'little')
+mtkclient\Library\DA\xflash\extension\xflash.py:112:                        g_ufs_hba = int.from_bytes(self.da2[ptr_g_ufs_hba + 10 + 0x8:ptr_g_ufs_hba + 10 + 0x8 + 4],
+mtkclient\Library\DA\xflash\extension\xflash.py:210:                auth_flag_ptr = int.from_bytes(da2patched[oppo - 4:oppo], 'little')
+mtkclient\Library\DA\xflash\extension\xflash.py:212:                if int.from_bytes(da2patched[auth_flag_offset:auth_flag_offset + 4], 'little') == 3:
+mtkclient\Library\DA\xflash\extension\xflash.py:458:            if int.from_bytes(derivedrpmb[:4], 'little') != 0xff:
+mtkclient\Library\DA\xflash\extension\xflash.py:555:        setup.efuse_base = self.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xflash\extension\xflash.py:618:    def read_fuse(self, idx):
+mtkclient\Library\DA\xflash\extension\xflash.py:619:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xflash\extension\xflash.py:620:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xflash\extension\xflash.py:622:            efuseconfig = Efuse(base, hwcode)
+mtkclient\Library\DA\xflash\extension\xflash.py:623:            addr = efuseconfig.efuses[idx]
+mtkclient\Library\DA\xflash\extension\xflash.py:631:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xflash\extension\xflash.py:632:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xflash\extension\xflash.py:638:    def read_fuses(self):
+mtkclient\Library\DA\xflash\extension\xflash.py:639:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xflash\extension\xflash.py:640:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xflash\extension\xflash.py:642:            efuseconfig = Efuse(base, hwcode)
+mtkclient\Library\DA\xflash\extension\xflash.py:644:            for idx in range(len(efuseconfig.efuses)):
+mtkclient\Library\DA\xflash\extension\xflash.py:645:                addr = efuseconfig.efuses[idx]
+mtkclient\Library\DA\xflash\extension\xflash.py:693:        # data=hwc.aes_hwcrypt(data=bytes.fromhex("A9 E9 DC 38 BF 6B BD 12 CC 2E F9 E6 F5 65 E8 C6 88 F7 14 11 80 " +
+mtkclient\Library\DA\xflash\extension\xflash.py:764:                val = self.read_fuse(0xC)
+mtkclient\Library\DA\xflash\extension\xflash.py:766:                    val += self.read_fuse(0xD)
+mtkclient\Library\DA\xflash\extension\xflash.py:767:                    val += self.read_fuse(0xE)
+mtkclient\Library\DA\xflash\extension\xflash.py:768:                    val += self.read_fuse(0xF)
+mtkclient\Library\DA\xflash\extension\xflash.py:787:                self.decrypt_tee(val["filename"], bytes.fromhex(val["data"]), bytes.fromhex(val["data2"]))
+mtkclient\Library\DA\xflash\xflash_lib.py:4:import logging
+mtkclient\Library\DA\xflash\xflash_lib.py:5:import time
+mtkclient\Library\DA\xflash\xflash_lib.py:6:import os
+mtkclient\Library\DA\xflash\xflash_lib.py:7:from binascii import hexlify
+mtkclient\Library\DA\xflash\xflash_lib.py:8:from struct import pack, unpack
+mtkclient\Library\DA\xflash\xflash_lib.py:9:from mtkclient.Library.DA.xflash.xflash_flash_param import NandExtension
+mtkclient\Library\DA\xflash\xflash_lib.py:10:from mtkclient.Library.DA.xflash.xflash_param import Cmd, ChecksumAlgorithm, FtSystemOSE, DataType
+mtkclient\Library\DA\xflash\xflash_lib.py:11:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\DA\xflash\xflash_lib.py:12:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\xflash\xflash_lib.py:13:from mtkclient.Library.DA.daconfig import EmmcPartitionType, UFSPartitionType, DaStorage, DAconfig
+mtkclient\Library\DA\xflash\xflash_lib.py:14:from mtkclient.Library.partition import Partition
+mtkclient\Library\DA\xflash\xflash_lib.py:15:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\xflash\xflash_lib.py:16:from mtkclient.Library.DA.xflash.extension.xflash import XFlashExt, XCmd
+mtkclient\Library\DA\xflash\xflash_lib.py:17:from mtkclient.Library.settings import HwParam
+mtkclient\Library\DA\xflash\xflash_lib.py:18:from mtkclient.Library.thread_handling import writedata
+mtkclient\Library\DA\xflash\xflash_lib.py:19:from queue import Queue
+mtkclient\Library\DA\xflash\xflash_lib.py:20:from threading import Thread
+mtkclient\Library\DA\xflash\xflash_lib.py:64:            from mtkclient.Library.Exploit.kamakiripl import KamakiriPl
+mtkclient\Library\DA\xflash\xflash_lib.py:71:            from mtkclient.Library.Exploit.carbonara import Carbonara
+mtkclient\Library\DA\xflash\xflash_lib.py:1025:        self.info(f"Uploading xflash stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\DA\xflash\xflash_lib.py:1215:    from mtkclient.Library.mtk_class import Mtk
+mtkclient\Library\DA\xflash\xflash_lib.py:1216:    from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\DA\xflash\xflash_lib.py:1229:    print(f"Uploading xflash stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\DA\xflash\xflash_param.py:19:    WRITE_EFUSE = 0x01000E
+mtkclient\Library\DA\xflash\xflash_param.py:20:    READ_EFUSE = 0x01000F
+mtkclient\Library\DA\xml\extension\v6.py:1:import logging
+mtkclient\Library\DA\xml\extension\v6.py:2:import os
+mtkclient\Library\DA\xml\extension\v6.py:3:import sys
+mtkclient\Library\DA\xml\extension\v6.py:4:from struct import unpack, pack
+mtkclient\Library\DA\xml\extension\v6.py:6:# from keystone import *
+mtkclient\Library\DA\xml\extension\v6.py:7:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\xml\extension\v6.py:8:from mtkclient.config.brom_config import Efuse
+mtkclient\Library\DA\xml\extension\v6.py:9:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\xml\extension\v6.py:10:from mtkclient.Library.Hardware.hwcrypto import CryptoSetup, HwCrypto
+mtkclient\Library\DA\xml\extension\v6.py:11:from mtkclient.Library.utils import LogBase, Progress, logsetup, find_binary
+mtkclient\Library\DA\xml\extension\v6.py:12:from mtkclient.Library.Hardware.seccfg import SecCfgV3, SecCfgV4
+mtkclient\Library\DA\xml\extension\v6.py:13:from mtkclient.Library.utils import MTKTee
+mtkclient\Library\DA\xml\extension\v6.py:14:import json
+mtkclient\Library\DA\xml\extension\v6.py:62:                instr1 = int.from_bytes(data[midx + 4:midx + 8], 'little')
+mtkclient\Library\DA\xml\extension\v6.py:63:                instr2 = int.from_bytes(data[midx2 + 4:midx2 + 8], 'little')
+mtkclient\Library\DA\xml\extension\v6.py:65:                # rw_primitive = bytes.fromhex("FF412DE90040A0E30460A0E30C708DE20050A0E10710A0E1003090E508008DE200408" +
+mtkclient\Library\DA\xml\extension\v6.py:98:                newdata = bytes.fromhex(
+mtkclient\Library\DA\xml\extension\v6.py:151:                instr1 = int.from_bytes(self.da2[idx - 0x8:idx - 0x4], 'little')
+mtkclient\Library\DA\xml\extension\v6.py:152:                instr2 = int.from_bytes(self.da2[idx - 0x4:idx], 'little')
+mtkclient\Library\DA\xml\extension\v6.py:218:                offset = int.from_bytes(da2patched[idx + 0xC:idx + 0xE], 'little') - 1
+mtkclient\Library\DA\xml\extension\v6.py:277:                    pubkey = bytes.fromhex(
+mtkclient\Library\DA\xml\extension\v6.py:396:                if int.from_bytes(derivedrpmb[:4], 'little') != 0xff:
+mtkclient\Library\DA\xml\extension\v6.py:539:                return int.from_bytes(data, 'little')
+mtkclient\Library\DA\xml\extension\v6.py:623:        setup.efuse_base = self.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xml\extension\v6.py:686:    def read_fuse(self, idx):
+mtkclient\Library\DA\xml\extension\v6.py:687:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xml\extension\v6.py:688:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xml\extension\v6.py:690:            efuseconfig = Efuse(base, hwcode)
+mtkclient\Library\DA\xml\extension\v6.py:691:            addr = efuseconfig.efuses[idx]
+mtkclient\Library\DA\xml\extension\v6.py:699:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xml\extension\v6.py:700:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xml\extension\v6.py:706:    def readfuses(self):
+mtkclient\Library\DA\xml\extension\v6.py:707:        if self.mtk.config.chipconfig.efuse_addr is not None:
+mtkclient\Library\DA\xml\extension\v6.py:708:            base = self.mtk.config.chipconfig.efuse_addr
+mtkclient\Library\DA\xml\extension\v6.py:710:            efuseconfig = Efuse(base, hwcode)
+mtkclient\Library\DA\xml\extension\v6.py:712:            for idx in range(len(efuseconfig.efuses)):
+mtkclient\Library\DA\xml\extension\v6.py:713:                addr = efuseconfig.efuses[idx]
+mtkclient\Library\DA\xml\extension\v6.py:750:        # data=hwc.aes_hwcrypt(data=bytes.fromhex("A9 E9 DC 38 BF 6B BD 12 CC 2E F9 E6 F5 65 E8 C6 88 F7 14 11 80 " +
+mtkclient\Library\DA\xml\extension\v6.py:815:            val = self.read_fuse(0xC)
+mtkclient\Library\DA\xml\extension\v6.py:817:                val += self.read_fuse(0xD)
+mtkclient\Library\DA\xml\extension\v6.py:818:                val += self.read_fuse(0xE)
+mtkclient\Library\DA\xml\extension\v6.py:819:                val += self.read_fuse(0xF)
+mtkclient\Library\DA\xml\extension\v6.py:834:                self.decrypt_tee(val["filename"], bytes.fromhex(val["data"]), bytes.fromhex(val["data2"]))
+mtkclient\Library\DA\xml\extension\v6.py:900:            instr1 = int.from_bytes(data[idx - 0x8:idx - 0x4], 'little')
+mtkclient\Library\DA\xml\extension\v6.py:901:            instr2 = int.from_bytes(data[idx - 0x4:idx], 'little')
+mtkclient\Library\DA\xml\xml_cmd.py:1:import datetime
+mtkclient\Library\DA\xml\xml_cmd.py:2:from mtkclient.Library.utils import LogBase
+mtkclient\Library\DA\xml\xml_cmd.py:239:    def cmd_write_efuse(self):
+mtkclient\Library\DA\xml\xml_cmd.py:242:                "<source_file>ms-appdata:///local/efuse.xml</source_file>"
+mtkclient\Library\DA\xml\xml_cmd.py:245:        cmd = self.create_cmd("WRITE-EFUSE", content)
+mtkclient\Library\DA\xml\xml_cmd.py:254:    def cmd_read_efuse(self):
+mtkclient\Library\DA\xml\xml_cmd.py:257:                "<target_file>ms-appdata:///local/efuse.xml</target_file>"
+mtkclient\Library\DA\xml\xml_cmd.py:260:        cmd = self.create_cmd("READ-EFUSE", content)
+mtkclient\Library\DA\xml\xml_lib.py:4:import logging
+mtkclient\Library\DA\xml\xml_lib.py:5:import os
+mtkclient\Library\DA\xml\xml_lib.py:6:from struct import pack, unpack
+mtkclient\Library\DA\xml\xml_lib.py:7:from queue import Queue
+mtkclient\Library\DA\xml\xml_lib.py:8:from threading import Thread
+mtkclient\Library\DA\xml\xml_lib.py:9:from Cryptodome.Hash import SHA256
+mtkclient\Library\DA\xml\xml_lib.py:10:from Cryptodome.Util.number import bytes_to_long, size
+mtkclient\Library\DA\xml\xml_lib.py:11:from Cryptodome.Cipher import PKCS1_OAEP
+mtkclient\Library\DA\xml\xml_lib.py:12:from Cryptodome.PublicKey import RSA
+mtkclient\Library\DA\xml\xml_lib.py:13:from mtkclient.Library.DA.xml.xml_param import DataType, FtSystemOSE, LogLevel
+mtkclient\Library\DA\xml\xml_lib.py:14:from mtkclient.Library.utils import logsetup, LogBase
+mtkclient\Library\DA\xml\xml_lib.py:15:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\DA\xml\xml_lib.py:16:from mtkclient.Library.DA.daconfig import EmmcPartitionType, UFSPartitionType, DaStorage
+mtkclient\Library\DA\xml\xml_lib.py:17:from mtkclient.Library.partition import Partition
+mtkclient\Library\DA\xml\xml_lib.py:18:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\DA\xml\xml_lib.py:19:from mtkclient.Library.thread_handling import writedata
+mtkclient\Library\DA\xml\xml_lib.py:20:from mtkclient.Library.DA.xml.xml_cmd import XMLCmd, BootModes
+mtkclient\Library\DA\xml\xml_lib.py:21:from mtkclient.Library.DA.xml.extension.v6 import XmlFlashExt
+mtkclient\Library\DA\xml\xml_lib.py:22:from mtkclient.Library.Auth.sla import generate_da_sla_signature
+mtkclient\Library\DA\xml\xml_lib.py:23:from mtkclient.Library.Auth.sla_keys import da_sla_keys
+mtkclient\Library\DA\xml\xml_lib.py:115:            from mtkclient.Library.Exploit.carbonara import Carbonara
+mtkclient\Library\DA\xml\xml_lib.py:213:            if int.from_bytes(sync[:4], 'little') == 0xfeeeeeef:
+mtkclient\Library\DA\xml\xml_lib.py:214:                if int.from_bytes(sync[4:8], 'little') == 0x1:
+mtkclient\Library\DA\xml\xml_lib.py:215:                    length = int.from_bytes(sync[8:12], 'little')
+mtkclient\Library\DA\xml\xml_lib.py:226:            if int.from_bytes(sync[:4], 'little') == 0xfeeeeeef:
+mtkclient\Library\DA\xml\xml_lib.py:227:                if int.from_bytes(sync[4:8], 'little') == 0x1:
+mtkclient\Library\DA\xml\xml_lib.py:228:                    length = int.from_bytes(sync[8:12], 'little')
+mtkclient\Library\DA\xml\xml_lib.py:261:        self.info(f"Uploading xflash stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\DA\xml\xml_lib.py:325:    def read_efuse(self):
+mtkclient\Library\DA\xml\xml_lib.py:326:        tmp = self.Cmd.cmd_read_efuse()
+mtkclient\Library\DA\xml\xml_lib.py:618:                            if da2.find(bytes.fromhex(key.n)) != -1:
+mtkclient\Library\DA\xml\xml_lib.py:678:                content["rnd"] = bytes.fromhex(get_field(data, "rnd"))
+mtkclient\Library\DA\xml\xml_lib.py:680:                content["hrid"] = bytes.fromhex(get_field(data, "hrid"))
+mtkclient\Library\DA\xml\xml_lib.py:682:                content["socid"] = bytes.fromhex(get_field(data, "socid"))
+mtkclient\Library\DA\xml\xml_lib.py:760:        int RSA_private_encrypt(int flen, unsigned char *from, unsigned char *to, RSA *rsa, int padding);
+mtkclient\Library\daconfig.py:4:import logging
+mtkclient\Library\daconfig.py:5:import os
+mtkclient\Library\daconfig.py:6:from struct import unpack
+mtkclient\Library\daconfig.py:7:from mtkclient.Library.utils import LogBase, read_object, logsetup
+mtkclient\Library\daconfig.py:8:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\daconfig.py:9:from mtkclient.config.brom_config import damodes
+mtkclient\Library\daconfig.py:10:from mtkclient.Library.utils import structhelper
+mtkclient\Library\error.py:88:    0x7F5: "EFUSE_REG_NO_MATCH_WITH_TARGET",
+mtkclient\Library\error.py:89:    0x7F6: "EFUSE_WRITE_TIMEOUT",
+mtkclient\Library\error.py:90:    0x7F7: "EFUSE_DATA_PROCESS_ERROR",
+mtkclient\Library\error.py:91:    0x7F8: "EFUSE_BLOW_ERROR",
+mtkclient\Library\error.py:92:    0x7F9: "EFUSE_ALREADY_BROKEN",
+mtkclient\Library\error.py:93:    0x7FA: "EFUSE_BLOW_PARTIAL",
+mtkclient\Library\error.py:97:    0x7FE: "EFUSE_VALUE_IS_NOT_ZERO",
+mtkclient\Library\error.py:98:    0x7FF: "EFUSE_WRITE_TIMEOUT_WITHOUT_EFUSE_VERIFY",
+mtkclient\Library\error.py:99:    0x800: "EFUSE_UNKNOW_EXCEPTION_WITHOUT_EFUSE_VERIFY",
+mtkclient\Library\error.py:703:    0xc0040200: "EFUSE unknown error",
+mtkclient\Library\error.py:704:    0xc0040201: "EFUSE write timeout without verify",
+mtkclient\Library\error.py:705:    0xc0040202: "EFUSE blown",
+mtkclient\Library\error.py:706:    0xc0040203: "EFUSE revert bit",
+mtkclient\Library\error.py:707:    0xc0040204: "EFUSE blown partly",
+mtkclient\Library\error.py:708:    0xc0040205: "EFUSE invalid argument",
+mtkclient\Library\error.py:709:    0xc0040206: "EFUSE value is not zero",
+mtkclient\Library\error.py:710:    0xc0040207: "EFUSE blown incorrect data",
+mtkclient\Library\error.py:711:    0xc0040208: "EFUSE broken",
+mtkclient\Library\error.py:712:    0xc0040209: "EFUSE blow error",
+mtkclient\Library\error.py:713:    0xc004020A: "EFUSE data process error",
+mtkclient\Library\error.py:714:    0xc004020B: "EFUSE unlock bpkey error",
+mtkclient\Library\error.py:715:    0xc004020C: "EFUSE create list error",
+mtkclient\Library\error.py:716:    0xc004020D: "EFUSE write register error",
+mtkclient\Library\error.py:717:    0xc004020E: "EFUSE padding type mismatch",
+mtkclient\Library\error.py:729:    0xc005000C: "Write efuse exception",
+mtkclient\Library\error.py:730:    0xc005000D: "Read efuse exception",
+mtkclient\Library\error.py:947:    3202: "S_DA_INVALID_PARAMETER_FROM_PC",
+mtkclient\Library\error.py:960:    3215: "S_DA_INITIAL_BMT_FAILED_CAUSED_FROM_POOL_SIZE_ERROR",
+mtkclient\Library\Exploit\amonet.py:4:import logging
+mtkclient\Library\Exploit\amonet.py:5:from binascii import hexlify
+mtkclient\Library\Exploit\amonet.py:6:from struct import pack, unpack
+mtkclient\Library\Exploit\amonet.py:8:from mtkclient.Library.exploit_handler import Exploitation
+mtkclient\Library\Exploit\amonet.py:9:from mtkclient.Library.utils import LogBase, print_progress
+mtkclient\Library\Exploit\hashimoto.py:4:import logging
+mtkclient\Library\Exploit\hashimoto.py:5:from struct import pack, unpack
+mtkclient\Library\Exploit\hashimoto.py:7:from mtkclient.Library.exploit_handler import Exploitation
+mtkclient\Library\Exploit\hashimoto.py:8:from mtkclient.Library.utils import LogBase, print_progress
+mtkclient\Library\Exploit\kamakiri.py:4:import logging
+mtkclient\Library\Exploit\kamakiri.py:5:import time
+mtkclient\Library\Exploit\kamakiri.py:6:import os
+mtkclient\Library\Exploit\kamakiri.py:7:from binascii import hexlify
+mtkclient\Library\Exploit\kamakiri.py:8:from struct import pack, unpack
+mtkclient\Library\Exploit\kamakiri.py:10:from mtkclient.Library.exploit_handler import Exploitation
+mtkclient\Library\Exploit\kamakiri.py:11:from mtkclient.Library.utils import LogBase, print_progress, revdword
+mtkclient\Library\Exploit\kamakiri.py:12:from mtkclient.Library.Connection.usblib import usb
+mtkclient\Library\Exploit\kamakiri.py:27:        status = int.from_bytes(self.mtk.port.usbread(2), byteorder="little")
+mtkclient\Library\Exploit\kamakiri.py:40:            raise RuntimeError("libusb is not installed for port {}".format(udev.dev.port)) from e
+mtkclient\Library\Exploit\kamakiri.py:55:                self.info(f"Loading payload from {filename}, {hex(len(payload))} bytes")
+mtkclient\Library\Exploit\kamakiri.py:107:                length = int.from_bytes(length, 'big')
+mtkclient\Library\Exploit\kamakiri2.py:4:import hashlib
+mtkclient\Library\Exploit\kamakiri2.py:5:import logging
+mtkclient\Library\Exploit\kamakiri2.py:6:import array
+mtkclient\Library\Exploit\kamakiri2.py:7:import os
+mtkclient\Library\Exploit\kamakiri2.py:8:from binascii import hexlify
+mtkclient\Library\Exploit\kamakiri2.py:9:from struct import pack, unpack
+mtkclient\Library\Exploit\kamakiri2.py:11:from mtkclient.Library.exploit_handler import Exploitation
+mtkclient\Library\Exploit\kamakiri2.py:12:from mtkclient.Library.utils import LogBase, print_progress
+mtkclient\Library\Exploit\kamakiri2.py:13:from mtkclient.Library.Connection.usblib import usb
+mtkclient\Library\Exploit\kamakiri2.py:114:            raise RuntimeError(f"libusb is not installed for port {udev.dev.port}") from e
+mtkclient\Library\Exploit\kamakiripl.py:4:import logging
+mtkclient\Library\Exploit\kamakiripl.py:5:import array
+mtkclient\Library\Exploit\kamakiripl.py:6:from struct import pack
+mtkclient\Library\Exploit\kamakiripl.py:8:from mtkclient.Library.exploit_handler import Exploitation
+mtkclient\Library\Exploit\kamakiripl.py:9:from mtkclient.Library.utils import LogBase
+mtkclient\Library\Exploit\kamakiripl.py:10:from mtkclient.Library.Connection.usblib import usb
+mtkclient\Library\exploit_handler.py:4:import logging
+mtkclient\Library\exploit_handler.py:5:import time
+mtkclient\Library\exploit_handler.py:6:from struct import pack, unpack
+mtkclient\Library\exploit_handler.py:8:from mtkclient.Library.Hardware.hwcrypto import HwCrypto, CryptoSetup
+mtkclient\Library\exploit_handler.py:9:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\exploit_handler.py:10:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\Filesystem\mtkdafs.py:2:    from fuse import Operations, LoggingMixIn
+mtkclient\Library\Filesystem\mtkdafs.py:3:except ImportError:
+mtkclient\Library\Filesystem\mtkdafs.py:4:    raise ImportError('fuse library not installed')
+mtkclient\Library\Filesystem\mtkdafs.py:5:from stat import S_IFDIR, S_IFREG
+mtkclient\Library\Filesystem\mtkdafs.py:6:from tempfile import NamedTemporaryFile
+mtkclient\Library\Filesystem\mtkdafs.py:7:from time import time
+mtkclient\Library\Filesystem\mtkdafs.py:8:import sys
+mtkclient\Library\Filesystem\mtkdafs.py:9:import os
+mtkclient\Library\Filesystem\mtkdafs.py:11:if not os.environ.get('FUSE_LIBRARY_PATH') and os.name == 'nt':
+mtkclient\Library\Filesystem\mtkdafs.py:12:    os.environ.setdefault('FUSE_LIBRARY_PATH',
+mtkclient\Library\gpt.py:4:import argparse
+mtkclient\Library\gpt.py:5:import os
+mtkclient\Library\gpt.py:6:import sys
+mtkclient\Library\gpt.py:7:import logging
+mtkclient\Library\gpt.py:8:from io import BytesIO
+mtkclient\Library\gpt.py:9:from enum import Enum
+mtkclient\Library\gpt.py:10:from struct import unpack
+mtkclient\Library\gpt.py:11:from binascii import hexlify
+mtkclient\Library\gpt.py:14:    from mtkclient.Library.utils import LogBase, Structhelper, logsetup
+mtkclient\Library\gpt.py:16:    from utils import LogBase, Structhelper
+mtkclient\Library\gpt.py:189:            guid1 = int.from_bytes(rrf.read(4), 'little')
+mtkclient\Library\gpt.py:190:            guid2 = int.from_bytes(rrf.read(2), 'little')
+mtkclient\Library\gpt.py:191:            guid3 = int.from_bytes(rrf.read(2), 'little')
+mtkclient\Library\gpt.py:192:            guid4 = int.from_bytes(rrf.read(2), 'little')
+mtkclient\Library\gpt.py:195:            pf.first_lba = int.from_bytes(rrf.read(8), 'little')
+mtkclient\Library\gpt.py:196:            pf.last_lba = int.from_bytes(rrf.read(8), 'little')
+mtkclient\Library\gpt.py:199:            pf.flags = int.from_bytes(rrf.read(8), 'little')
+mtkclient\Library\Hardware\cqdma.py:4:import logging
+mtkclient\Library\Hardware\cqdma.py:5:import os
+mtkclient\Library\Hardware\cqdma.py:6:from struct import pack, unpack
+mtkclient\Library\Hardware\cqdma.py:7:from mtkclient.Library.utils import LogBase
+mtkclient\Library\Hardware\hwcrypto.py:4:import logging
+mtkclient\Library\Hardware\hwcrypto.py:5:import sys
+mtkclient\Library\Hardware\hwcrypto.py:7:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\Hardware\hwcrypto.py:8:from mtkclient.Library.Hardware.hwcrypto_gcpu import GCpu
+mtkclient\Library\Hardware\hwcrypto.py:9:from mtkclient.Library.Hardware.hwcrypto_dxcc import Dxcc
+mtkclient\Library\Hardware\hwcrypto.py:10:from mtkclient.Library.Hardware.hwcrypto_sej import Sej
+mtkclient\Library\Hardware\hwcrypto.py:11:from mtkclient.Library.Hardware.cqdma import Cqdma
+mtkclient\Library\Hardware\hwcrypto.py:29:    efuse_base = None
+mtkclient\Library\Hardware\hwcrypto.py:57:                otp = bytes.fromhex(otp)
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:7:import logging
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:8:import hashlib
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:9:from struct import pack
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:10:from Cryptodome.Util.number import bytes_to_long
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:11:from Cryptodome.Cipher import AES
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:12:from Cryptodome.Util import Counter
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:13:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:53:buffer[0x10C:0x20C] = bytes.fromhex(huawei_med_lx9)
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1118:        rpmb_ikey = bytes.fromhex("AD1AC6B4BDF4EDB7")
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1119:        rpmb_salt = bytes.fromhex("69EF6584")
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1146:        salt = hashlib.sha256(bytes.fromhex(oem_pubk)).digest()
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1311:        key = bytes.fromhex("B936C14D95A99585073E5607784A51F7444B60D6BFD6110F76D004CCB7E1950E")
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1317:        key = bytes.fromhex("5C0E349A27DC46034C7B6744A378BD17")
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1318:        iv = bytes.fromhex("A0B0924686447109F2D51DCDDC93458A")
+mtkclient\Library\Hardware\hwcrypto_dxcc.py:1327:        iv = bytes.fromhex("19CDE05BABD9831F8C68059B7F520E513AF54FA572F36E3C85AE67BB67E6096A")
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:5:import hmac
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:6:import hashlib
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:7:import logging
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:8:from struct import pack, unpack
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:9:from binascii import hexlify
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:10:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:170:def from_dwords(data) -> bytearray:
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:435:            iv_bytes = bytes.fromhex(iv)
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:596:            self.memptr_set(src, bytearray(bytes.fromhex("4B65796D61737465724D617374657200")))
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:598:            # bytearray(bytes.fromhex("0102030405060708090A0B0C0D0E0F0102030405060708090A0B0C0D0E0F0000")))
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:665:                return from_dwords(self.read32(0x10206140))
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:667:                return from_dwords(self.read32(0x10206144))
+mtkclient\Library\Hardware\hwcrypto_gcpu.py:692:        init_seed = bytearray(bytes.fromhex("735f23c962e7a10ab201d9a6426064b1"))
+mtkclient\Library\Hardware\hwcrypto_sej.py:4:import logging
+mtkclient\Library\Hardware\hwcrypto_sej.py:5:import os
+mtkclient\Library\Hardware\hwcrypto_sej.py:6:from struct import pack, unpack
+mtkclient\Library\Hardware\hwcrypto_sej.py:7:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\Hardware\hwcrypto_sej.py:8:from mtkclient.Library.cryptutils import CryptUtils
+mtkclient\Library\Hardware\hwcrypto_sej.py:10:CustomSeed = bytes.fromhex("00be13bb95e218b53d07a089cb935255294f70d4088f3930350bc636cc49c9025ece7a62c292853ef55b23a6e" +
+mtkclient\Library\Hardware\hwcrypto_sej.py:237:        # 2 uses 32 byte hw derived key from sw key
+mtkclient\Library\Hardware\hwcrypto_sej.py:238:        # 3 uses 32 byte hw derived key from rid
+mtkclient\Library\Hardware\hwcrypto_sej.py:575:            # encrypt fix pattern 3 rounds to generate a pattern from HUID/HUK
+mtkclient\Library\Hardware\hwcrypto_sej.py:665:        iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\Hardware\hwcrypto_sej.py:678:        iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\Hardware\hwcrypto_sej.py:683:                          iv=bytes.fromhex("57325A5A125497661254976657325A5A"), data=data,
+mtkclient\Library\Hardware\hwcrypto_sej.py:714:        # self.sej_sec_cfg_decrypt(bytes.fromhex("1FF7EB9EEA3BA346C2C94E3D44850C2172B56BC26D2450CA9ADBAB7136604542C3B2EA50057037669A4C493BF7CC7E6E2644563808F73B3AA5AFE2D48D97597E"))
+mtkclient\Library\Hardware\hwcrypto_sej.py:716:        # self.sej_set_otp(bytes.fromhex("486973656E7365000023232323232323232323230A006420617320302C207468010000009400000040000000797B797B"))
+mtkclient\Library\Hardware\hwcrypto_sej.py:744:            iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\Hardware\hwcrypto_sej.py:766:        buf = bytes.fromhex("4B65796D61737465724D617374657200")
+mtkclient\Library\Hardware\hwcrypto_sej.py:780:        dec = self.sej_run(bytes.fromhex("7777772E6D6564696174656B2E636F6D30313233343536373839414243444546"))
+mtkclient\Library\Hardware\seccfg.py:1:from struct import pack
+mtkclient\Library\Hardware\seccfg.py:2:import os
+mtkclient\Library\Hardware\seccfg.py:3:import hashlib
+mtkclient\Library\Hardware\seccfg.py:4:import logging
+mtkclient\Library\Hardware\seccfg.py:5:from io import BytesIO
+mtkclient\Library\Hardware\seccfg.py:6:from mtkclient.Library.utils import StructhelperIo, logsetup
+mtkclient\Library\Hardware\seccfg.py:7:from mtkclient.Library.utils import LogBase
+mtkclient\Library\Hardware\seccfg.py:8:from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\Hardware\seccfg.py:289:    from hwcrypto import HwCrypto, CryptoSetup
+mtkclient\Library\hwcrypto.py:4:import logging
+mtkclient\Library\hwcrypto.py:5:import time
+mtkclient\Library\hwcrypto.py:7:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\hwcrypto.py:8:from mtkclient.Library.hwcrypto_gcpu import GCpu
+mtkclient\Library\hwcrypto.py:9:from mtkclient.Library.hwcrypto_dxcc import dxcc
+mtkclient\Library\hwcrypto.py:10:from mtkclient.Library.hwcrypto_sej import sej
+mtkclient\Library\hwcrypto.py:11:from mtkclient.Library.cqdma import cqdma
+mtkclient\Library\hwcrypto.py:12:from struct import unpack
+mtkclient\Library\hwcrypto.py:58:                otp = bytes.fromhex(otp)
+mtkclient\Library\hwcrypto_dxcc.py:7:import logging, os
+mtkclient\Library\hwcrypto_dxcc.py:8:import hashlib
+mtkclient\Library\hwcrypto_dxcc.py:9:from struct import pack
+mtkclient\Library\hwcrypto_dxcc.py:10:from Crypto.Util.number import bytes_to_long
+mtkclient\Library\hwcrypto_dxcc.py:11:from Crypto.Cipher import AES
+mtkclient\Library\hwcrypto_dxcc.py:12:from Crypto.Util import Counter
+mtkclient\Library\hwcrypto_dxcc.py:13:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\hwcrypto_dxcc.py:53:buffer[0x10C:0x20C] = bytes.fromhex(huawei_med_lx9)
+mtkclient\Library\hwcrypto_dxcc.py:1138:        salt = hashlib.sha256(bytes.fromhex(oem_pubk)).digest()
+mtkclient\Library\hwcrypto_dxcc.py:1302:        key = bytes.fromhex("B936C14D95A99585073E5607784A51F7444B60D6BFD6110F76D004CCB7E1950E")
+mtkclient\Library\hwcrypto_dxcc.py:1307:        key = bytes.fromhex("5C0E349A27DC46034C7B6744A378BD17")
+mtkclient\Library\hwcrypto_dxcc.py:1308:        iv = bytes.fromhex("A0B0924686447109F2D51DCDDC93458A")
+mtkclient\Library\hwcrypto_dxcc.py:1317:        iv = bytes.fromhex("19CDE05BABD9831F8C68059B7F520E513AF54FA572F36E3C85AE67BB67E6096A")
+mtkclient\Library\hwcrypto_gcpu.py:5:import hmac
+mtkclient\Library\hwcrypto_gcpu.py:6:import hashlib
+mtkclient\Library\hwcrypto_gcpu.py:7:import logging
+mtkclient\Library\hwcrypto_gcpu.py:8:from struct import pack, unpack
+mtkclient\Library\hwcrypto_gcpu.py:9:from binascii import hexlify
+mtkclient\Library\hwcrypto_gcpu.py:10:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\hwcrypto_gcpu.py:170:def from_dwords(data) -> bytearray:
+mtkclient\Library\hwcrypto_gcpu.py:434:            iv_bytes = bytes.fromhex(iv)
+mtkclient\Library\hwcrypto_gcpu.py:595:            self.memptr_set(src, bytearray(bytes.fromhex("4B65796D61737465724D617374657200")))
+mtkclient\Library\hwcrypto_gcpu.py:596:            # self.memptr_set(src, bytearray(bytes.fromhex("0102030405060708090A0B0C0D0E0F0102030405060708090A0B0C0D0E0F0000")))
+mtkclient\Library\hwcrypto_gcpu.py:663:                return from_dwords(self.read32(0x10206140))
+mtkclient\Library\hwcrypto_gcpu.py:665:                return from_dwords(self.read32(0x10206144))
+mtkclient\Library\hwcrypto_gcpu.py:689:        init_seed = bytearray(bytes.fromhex("735f23c962e7a10ab201d9a6426064b1"))
+mtkclient\Library\hwcrypto_sej.py:4:import logging, os
+mtkclient\Library\hwcrypto_sej.py:5:from struct import pack, unpack
+mtkclient\Library\hwcrypto_sej.py:6:from mtkclient.Library.utils import LogBase
+mtkclient\Library\hwcrypto_sej.py:7:from binascii import hexlify
+mtkclient\Library\hwcrypto_sej.py:216:        # 2 uses 32 byte hw derived key from sw key
+mtkclient\Library\hwcrypto_sej.py:217:        # 3 uses 32 byte hw derived key from rid
+mtkclient\Library\hwcrypto_sej.py:363:        # encrypt fix pattern 3 rounds to generate a pattern from HUID/HUK
+mtkclient\Library\hwcrypto_sej.py:450:        iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\hwcrypto_sej.py:460:        iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\hwcrypto_sej.py:491:        # self.sej_sec_cfg_decrypt(bytes.fromhex("1FF7EB9EEA3BA346C2C94E3D44850C2172B56BC26D2450CA9ADBAB7136604542C3B2EA50057037669A4C493BF7CC7E6E2644563808F73B3AA5AFE2D48D97597E"))
+mtkclient\Library\hwcrypto_sej.py:493:        # self.sej_set_otp(bytes.fromhex("486973656E7365000023232323232323232323230A006420617320302C207468010000009400000040000000797B797B"))
+mtkclient\Library\hwcrypto_sej.py:521:            iv = bytes.fromhex("57325A5A125497661254976657325A5A")
+mtkclient\Library\hwcrypto_sej.py:543:        buf = bytes.fromhex("4B65796D61737465724D617374657200")
+mtkclient\Library\kamakiri.py:4:import logging
+mtkclient\Library\kamakiri.py:5:import array
+mtkclient\Library\kamakiri.py:6:import time
+mtkclient\Library\kamakiri.py:7:import os
+mtkclient\Library\kamakiri.py:8:from struct import pack, unpack
+mtkclient\Library\kamakiri.py:9:from mtkclient.Library.utils import LogBase, print_progress, revdword, logsetup, getint
+mtkclient\Library\kamakiri.py:10:from mtkclient.Library.Connection.usblib import usb
+mtkclient\Library\kamakiri.py:11:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\kamakiri.py:44:        status = int.from_bytes(self.mtk.port.usbread(2), byteorder="little")
+mtkclient\Library\kamakiri.py:57:            raise RuntimeError("libusb is not installed for port {}".format(udev.dev.port)) from e
+mtkclient\Library\kamakiri.py:187:            raise RuntimeError("libusb is not installed for port {}".format(udev.dev.port)) from e
+mtkclient\Library\kamakiri.py:234:                self.info(f"Loading payload from {filename}, {hex(len(payload))} bytes")
+mtkclient\Library\kamakiri.py:286:                length = int.from_bytes(length,'big')
+mtkclient\Library\legacy_ext.py:1:import os
+mtkclient\Library\legacy_ext.py:2:from struct import unpack, pack
+mtkclient\Library\legacy_ext.py:4:from mtkclient.Library.settings import hwparam
+mtkclient\Library\legacy_ext.py:5:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\legacy_ext.py:6:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\legacy_ext.py:7:from mtkclient.Library.hwcrypto import crypto_setup, hwcrypto
+mtkclient\Library\legacy_ext.py:8:from mtkclient.Library.utils import LogBase, progress, logsetup, find_binary
+mtkclient\Library\legacy_ext.py:9:from mtkclient.Library.seccfg import seccfg
+mtkclient\Library\legacy_ext.py:10:from binascii import hexlify
+mtkclient\Library\legacy_ext.py:11:from mtkclient.Library.utils import mtktee
+mtkclient\Library\legacy_ext.py:12:import hashlib
+mtkclient\Library\legacy_ext.py:13:import json
+mtkclient\Library\legacy_ext.py:254:                self.decrypt_tee(val["filename"],bytes.fromhex(val["data"]),bytes.fromhex(val["data2"]))
+mtkclient\Library\meta.py:4:import time
+mtkclient\Library\meta.py:5:import sys
+mtkclient\Library\meta.py:6:import logging
+mtkclient\Library\meta.py:7:from enum import Enum
+mtkclient\Library\meta.py:8:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\mtk.py:4:import os
+mtkclient\Library\mtk.py:5:import logging
+mtkclient\Library\mtk.py:6:from struct import unpack
+mtkclient\Library\mtk.py:7:from mtkclient.config.usb_ids import default_ids
+mtkclient\Library\mtk.py:8:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\mtk.py:9:from mtkclient.Library.pltools import PLTools
+mtkclient\Library\mtk.py:10:from mtkclient.Library.mtk_preloader import Preloader
+mtkclient\Library\mtk.py:11:from mtkclient.Library.mtk_daloader import DAloader
+mtkclient\Library\mtk.py:12:from mtkclient.Library.Port import Port
+mtkclient\Library\mtk.py:13:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\mtk.py:14:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk.py:46:            pattern = bytes.fromhex(patchval[0])
+mtkclient\Library\mtk.py:49:                patch = bytes.fromhex(patchval[1])
+mtkclient\Library\mtk.py:55:            import sys
+mtkclient\Library\mtk_class.py:4:import os
+mtkclient\Library\mtk_class.py:5:import logging
+mtkclient\Library\mtk_class.py:6:from struct import unpack
+mtkclient\Library\mtk_class.py:7:from mtkclient.config.usb_ids import default_ids
+mtkclient\Library\mtk_class.py:8:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\mtk_class.py:9:from mtkclient.Library.pltools import PLTools
+mtkclient\Library\mtk_class.py:10:from mtkclient.Library.mtk_preloader import Preloader
+mtkclient\Library\mtk_class.py:11:from mtkclient.Library.DA.mtk_daloader import DAloader
+mtkclient\Library\mtk_class.py:12:from mtkclient.Library.Port import Port
+mtkclient\Library\mtk_class.py:13:from mtkclient.Library.utils import LogBase, logsetup, find_binary
+mtkclient\Library\mtk_class.py:14:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_class.py:66:                pattern = bytes.fromhex(patchval[0])
+mtkclient\Library\mtk_class.py:69:                    patch = bytes.fromhex(patchval[1])
+mtkclient\Library\mtk_class.py:100:            pattern = bytes.fromhex(patchval[0])
+mtkclient\Library\mtk_class.py:103:                patch = bytes.fromhex(patchval[1])
+mtkclient\Library\mtk_dalegacy.py:4:import sys
+mtkclient\Library\mtk_dalegacy.py:5:import logging
+mtkclient\Library\mtk_dalegacy.py:6:import os
+mtkclient\Library\mtk_dalegacy.py:7:import time
+mtkclient\Library\mtk_dalegacy.py:8:from struct import pack, unpack
+mtkclient\Library\mtk_dalegacy.py:9:from binascii import hexlify
+mtkclient\Library\mtk_dalegacy.py:10:from mtkclient.Library.utils import LogBase, logsetup, structhelper
+mtkclient\Library\mtk_dalegacy.py:11:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_dalegacy.py:12:from mtkclient.Library.daconfig import DaStorage, EMMC_PartitionType
+mtkclient\Library\mtk_dalegacy.py:13:from mtkclient.Library.partition import Partition
+mtkclient\Library\mtk_dalegacy.py:14:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\mtk_dalegacy.py:15:from mtkclient.Library.legacy_ext import legacyext
+mtkclient\Library\mtk_dalegacy.py:16:from mtkclient.config.mtk_config import Mtk_Config
+mtkclient\Library\mtk_dalegacy.py:459:    3202: "S_DA_INVALID_PARAMETER_FROM_PC",
+mtkclient\Library\mtk_dalegacy.py:472:    3215: "S_DA_INITIAL_BMT_FAILED_CAUSED_FROM_POOL_SIZE_ERROR",
+mtkclient\Library\mtk_dalegacy.py:556:        # EFUSE
+mtkclient\Library\mtk_dalegacy.py:989:        self.info(f"Uploading legacy stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\mtk_daloader.py:4:import json
+mtkclient\Library\mtk_daloader.py:5:import logging
+mtkclient\Library\mtk_daloader.py:6:import os
+mtkclient\Library\mtk_daloader.py:7:import hashlib
+mtkclient\Library\mtk_daloader.py:8:from binascii import hexlify
+mtkclient\Library\mtk_daloader.py:9:from mtkclient.Library.utils import LogBase, logsetup, progress
+mtkclient\Library\mtk_daloader.py:10:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_daloader.py:11:from mtkclient.Library.daconfig import DAconfig
+mtkclient\Library\mtk_daloader.py:12:from mtkclient.Library.mtk_dalegacy import DALegacy, norinfo, emmcinfo, sdcinfo, nandinfo64
+mtkclient\Library\mtk_daloader.py:13:from mtkclient.Library.mtk_daxflash import DAXFlash
+mtkclient\Library\mtk_daloader.py:14:from mtkclient.config.brom_config import damodes
+mtkclient\Library\mtk_daloader.py:15:from mtkclient.Library.xflash_ext import xflashext
+mtkclient\Library\mtk_daloader.py:16:from mtkclient.Library.legacy_ext import legacyext
+mtkclient\Library\mtk_daloader.py:17:from mtkclient.Library.settings import hwparam
+mtkclient\Library\mtk_daloader.py:101:                self.config.meid = bytes.fromhex(config["meid"])
+mtkclient\Library\mtk_daloader.py:103:                self.config.socid = bytes.fromhex(config["socid"])
+mtkclient\Library\mtk_daxflash.py:4:import logging
+mtkclient\Library\mtk_daxflash.py:5:import time
+mtkclient\Library\mtk_daxflash.py:6:import os
+mtkclient\Library\mtk_daxflash.py:7:import hashlib
+mtkclient\Library\mtk_daxflash.py:8:from binascii import hexlify
+mtkclient\Library\mtk_daxflash.py:9:from struct import pack, unpack
+mtkclient\Library\mtk_daxflash.py:10:from mtkclient.Library.utils import LogBase, progress, logsetup
+mtkclient\Library\mtk_daxflash.py:11:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_daxflash.py:12:from mtkclient.Library.daconfig import EMMC_PartitionType, UFS_PartitionType, DaStorage
+mtkclient\Library\mtk_daxflash.py:13:from mtkclient.Library.partition import Partition
+mtkclient\Library\mtk_daxflash.py:14:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\mtk_daxflash.py:15:from mtkclient.Library.xflash_ext import xflashext, XCmd
+mtkclient\Library\mtk_daxflash.py:16:from mtkclient.Library.settings import hwparam
+mtkclient\Library\mtk_daxflash.py:57:        WRITE_EFUSE = 0x01000E
+mtkclient\Library\mtk_daxflash.py:58:        READ_EFUSE = 0x01000F
+mtkclient\Library\mtk_daxflash.py:1014:        self.info(f"Uploading xflash stage 1 from {os.path.basename(loader)}")
+mtkclient\Library\mtk_da_cmd.py:1:import os
+mtkclient\Library\mtk_da_cmd.py:2:import time
+mtkclient\Library\mtk_da_cmd.py:3:import sys
+mtkclient\Library\mtk_da_cmd.py:4:import logging
+mtkclient\Library\mtk_da_cmd.py:5:from struct import pack, unpack
+mtkclient\Library\mtk_da_cmd.py:6:from binascii import hexlify
+mtkclient\Library\mtk_da_cmd.py:7:from mtkclient.Library.utils import LogBase, logsetup, getint
+mtkclient\Library\mtk_da_cmd.py:8:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\mtk_da_cmd.py:9:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_da_cmd.py:10:from mtkclient.Library.utils import progress
+mtkclient\Library\mtk_da_cmd.py:106:                            "Device is in BROM mode. No preloader given, trying to dump preloader from ram.")
+mtkclient\Library\mtk_da_cmd.py:109:                            self.error("Failed to dump preloader from ram.")
+mtkclient\Library\mtk_da_cmd.py:131:            print(f"Dumped GPT from to {sfilename}")
+mtkclient\Library\mtk_da_cmd.py:290:                            print(f"Dumped footer from {partition.name} as {filename}.")
+mtkclient\Library\mtk_da_cmd.py:529:            self.info(f"Successfully wrote data from {hex(addr)}, length {hex(length)} to {filename}")
+mtkclient\Library\mtk_da_cmd.py:532:                f"Data read from {hex(addr)}, length: {hex(length)}:\n{hexlify(retval).decode('utf-8')}\n")
+mtkclient\Library\mtk_da_cmd.py:542:                data = bytes.fromhex(data)
+mtkclient\Library\mtk_da_cmd.py:691:                efuseaddr = 0x11C10000
+mtkclient\Library\mtk_da_cmd.py:692:                efusesize = 0x10000
+mtkclient\Library\mtk_da_cmd.py:708:                self.info(f"Dumping efuse at {hex(efuseaddr)}, size at {hex(efusesize)}...")
+mtkclient\Library\mtk_da_cmd.py:709:                self.da_peek(addr=efuseaddr, length=efusesize,
+mtkclient\Library\mtk_da_cmd.py:710:                             filename=os.path.join(directory, "dump_efuse.bin"))
+mtkclient\Library\mtk_main.py:4:import os
+mtkclient\Library\mtk_main.py:5:import sys
+mtkclient\Library\mtk_main.py:6:import logging
+mtkclient\Library\mtk_main.py:7:import time
+mtkclient\Library\mtk_main.py:8:from binascii import hexlify
+mtkclient\Library\mtk_main.py:9:from struct import unpack, pack
+mtkclient\Library\mtk_main.py:10:from mtkclient.Library.mtk_class import Mtk
+mtkclient\Library\mtk_main.py:11:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\mtk_main.py:12:from mtkclient.Library.pltools import PLTools
+mtkclient\Library\mtk_main.py:13:from mtkclient.Library.meta import META
+mtkclient\Library\mtk_main.py:14:from mtkclient.Library.utils import LogBase, getint, logsetup
+mtkclient\Library\mtk_main.py:15:from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Library\mtk_main.py:16:from mtkclient.Library.utils import print_progress
+mtkclient\Library\mtk_main.py:17:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_main.py:18:from mtkclient.Library.DA.mtk_da_handler import DaHandler
+mtkclient\Library\mtk_main.py:19:from mtkclient.Library.gpt import GptSettings
+mtkclient\Library\mtk_main.py:64:                config.appid = bytes.fromhex(args.appid)
+mtkclient\Library\mtk_main.py:337:                self.info(f"Data from {hex(addr)} with size of {hex(length)} was written to " + filename)
+mtkclient\Library\mtk_main.py:506:                             "Trying to dump preloader from ram.")
+mtkclient\Library\mtk_preloader.py:4:import os
+mtkclient\Library\mtk_preloader.py:5:import logging
+mtkclient\Library\mtk_preloader.py:6:import time
+mtkclient\Library\mtk_preloader.py:7:from enum import Enum
+mtkclient\Library\mtk_preloader.py:8:from struct import unpack, pack
+mtkclient\Library\mtk_preloader.py:9:from binascii import hexlify
+mtkclient\Library\mtk_preloader.py:11:from Cryptodome.Util.number import size
+mtkclient\Library\mtk_preloader.py:12:from mtkclient.Library.Auth.sla_keys import brom_sla_keys
+mtkclient\Library\mtk_preloader.py:13:from mtkclient.Library.Auth.sla import generate_brom_sla_challenge
+mtkclient\Library\mtk_preloader.py:14:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\mtk_preloader.py:15:from mtkclient.Library.error import ErrorHandler
+mtkclient\Library\mtk_preloader.py:16:from mtkclient.config.brom_config import DAmodes
+mtkclient\Library\mtk_preloader.py:71:        / Boot-loader resposne from BLDR_CMD_READY (0xB8)
+mtkclient\Library\mtk_preloader.py:773:            elif int.from_bytes(res, 'little') > 2:
+mtkclient\Library\mtk_preloader.py:800:            elif int.from_bytes(res, 'little') > 2:
+mtkclient\Library\mtk_preloader.py:840:                self.error("No reply from da loader.")
+mtkclient\Library\partition.py:4:import logging
+mtkclient\Library\partition.py:6:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\partition.py:7:from mtkclient.Library.gpt import GPT
+mtkclient\Library\partition.py:8:from mtkclient.Library.pmt import PMT
+mtkclient\Library\partition.py:40:        magic = int.from_bytes(data[:4], 'little')
+mtkclient\Library\pltools.py:4:import os
+mtkclient\Library\pltools.py:5:import logging
+mtkclient\Library\pltools.py:6:from binascii import hexlify
+mtkclient\Library\pltools.py:7:from mtkclient.Library.Exploit.amonet import Amonet
+mtkclient\Library\pltools.py:8:from mtkclient.Library.Exploit.hashimoto import Hashimoto
+mtkclient\Library\pltools.py:9:from mtkclient.config.payloads import PathConfig
+mtkclient\Library\pltools.py:10:from mtkclient.Library.utils import LogBase, print_progress, logsetup
+mtkclient\Library\pltools.py:11:from mtkclient.Library.Hardware.hwcrypto import CryptoSetup, HwCrypto
+mtkclient\Library\pltools.py:12:from mtkclient.Library.Exploit.kamakiri import Kamakiri
+mtkclient\Library\pltools.py:13:from mtkclient.Library.Exploit.kamakiri2 import Kamakiri2
+mtkclient\Library\pltools.py:14:from mtkclient.Library.Port import Port
+mtkclient\Library\pltools.py:73:                self.info(f"Loading payload from {os.path.basename(filename)}, {hex(len(payload))} bytes")
+mtkclient\Library\pmt.py:6:    from mtkclient.Library.utils import LogBase, Structhelper
+mtkclient\Library\pmt.py:8:    from utils import LogBase, Structhelper
+mtkclient\Library\Port.py:4:import os
+mtkclient\Library\Port.py:5:import sys
+mtkclient\Library\Port.py:6:import logging
+mtkclient\Library\Port.py:7:import time
+mtkclient\Library\Port.py:8:from binascii import hexlify
+mtkclient\Library\Port.py:9:from struct import pack
+mtkclient\Library\Port.py:10:from mtkclient.Library.utils import LogBase, logsetup
+mtkclient\Library\Port.py:11:from mtkclient.Library.Connection.usblib import UsbClass
+mtkclient\Library\Port.py:12:from mtkclient.Library.Connection.seriallib import SerialClass
+mtkclient\Library\seccfg.py:1:from struct import unpack, pack
+mtkclient\Library\seccfg.py:2:import hashlib
+mtkclient\Library\settings.py:1:import json
+mtkclient\Library\settings.py:2:import os.path
+mtkclient\Library\settings.py:3:from binascii import hexlify
+mtkclient\Library\utils.py:4:import codecs
+mtkclient\Library\utils.py:5:import copy
+mtkclient\Library\utils.py:6:import datetime as dt
+mtkclient\Library\utils.py:7:import io
+mtkclient\Library\utils.py:8:import logging
+mtkclient\Library\utils.py:9:import logging.config
+mtkclient\Library\utils.py:10:import os
+mtkclient\Library\utils.py:11:import shutil
+mtkclient\Library\utils.py:12:import stat
+mtkclient\Library\utils.py:13:import struct
+mtkclient\Library\utils.py:14:import sys
+mtkclient\Library\utils.py:15:import time
+mtkclient\Library\utils.py:16:from io import BytesIO
+mtkclient\Library\utils.py:17:from struct import unpack, pack
+mtkclient\Library\utils.py:19:import colorama
+mtkclient\Library\utils.py:22:    from capstone import Cs, CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN
+mtkclient\Library\utils.py:23:except ImportError:
+mtkclient\Library\utils.py:26:    from keystone import Ks, KS_ARCH_ARM64, KS_MODE_LITTLE_ENDIAN, KsError
+mtkclient\Library\utils.py:27:except ImportError:
+mtkclient\Library\utils.py:77:        dat = int.from_bytes(self.data.read(8), self.direction)
+mtkclient\Library\utils.py:81:        dat = int.from_bytes(self.data.read(4), self.direction)
+mtkclient\Library\utils.py:85:        dat = [int.from_bytes(self.data.read(4), self.direction) for _ in range(dwords)]
+mtkclient\Library\utils.py:89:        dat = int.from_bytes(self.data.read(2), self.direction)
+mtkclient\Library\utils.py:93:        dat = [int.from_bytes(self.data.read(2), self.direction) for _ in range(shorts)]
+mtkclient\Library\utils.py:164:            finishtime = dt.datetime.fromtimestamp(finishtime).strftime("%H:%M:%S")  # in time
+mtkclient\Library\utils.py:303:    import socket
+mtkclient\Library\utils.py:315:            print('connection from', client_address)
+mtkclient\Library\utils.py:552:            ms.file_start_addr = entry.from_file
+mtkclient\Library\utils.py:553:            ms.file_end_addr = entry.from_file + entry.seg_file_len
+mtkclient\Library\utils.py:576:        from_file = 0
+mtkclient\Library\utils.py:587:            (pe.p_type, pe.from_file, pe.virt_addr, pe.phy_addr, pe.seg_file_len, pe.seg_mem_len, pe.p_flags,
+mtkclient\Library\utils.py:590:            (pe.p_type, pe.p_flags, pe.from_file, pe.virt_addr, pe.phy_addr, pe.seg_file_len, pe.seg_mem_len,
+mtkclient\Library\xflash_ext.py:1:import hmac
+mtkclient\Library\xflash_ext.py:2:import os
+mtkclient\Library\xflash_ext.py:3:from struct import unpack, pack
+mtkclient\Library\xflash_ext.py:5:from mtkclient.config.payloads import pathconfig
+mtkclient\Library\xflash_ext.py:6:from mtkclient.Library.error import ErrorHandler, ErrorCodes_XFlash
+mtkclient\Library\xflash_ext.py:7:from mtkclient.Library.hwcrypto import crypto_setup, hwcrypto
+mtkclient\Library\xflash_ext.py:8:from mtkclient.Library.utils import LogBase, progress, logsetup, find_binary
+mtkclient\Library\xflash_ext.py:9:from mtkclient.Library.seccfg import seccfg
+mtkclient\Library\xflash_ext.py:10:from binascii import hexlify
+mtkclient\Library\xflash_ext.py:11:import hashlib
+mtkclient\Library\xflash_ext.py:12:from mtkclient.Library.utils import mtktee
+mtkclient\Library\xflash_ext.py:13:import json
+mtkclient\Library\xflash_ext.py:113:                    g_ufs_hba = int.from_bytes(self.da2[ptr_g_ufs_hba + 10 + 0x8:ptr_g_ufs_hba + 10 + 0x8 + 4],
+mtkclient\Library\xflash_ext.py:116:                g_ufs_hba = int.from_bytes(self.da2[ptr_g_ufs_hba + 10:ptr_g_ufs_hba + 10 + 4], 'little')
+mtkclient\Library\xflash_ext.py:388:            if int.from_bytes(derivedrpmb[:4],'little') != 0xff:
+mtkclient\Library\xflash_ext.py:615:                self.decrypt_tee(val["filename"],bytes.fromhex(val["data"]),bytes.fromhex(val["data2"]))
+mtkclient\src\stage1\emulate_payload.py:4:import logging
+mtkclient\src\stage1\emulate_payload.py:5:from emu_config.payload_config import br
+mtkclient\src\stage1\emulate_payload.py:6:from unicorn import (Uc, UC_MEM_WRITE, UC_MEM_READ, UC_MEM_FETCH, UC_MEM_READ_UNMAPPED,
+mtkclient\src\stage1\emulate_payload.py:10:from unicorn.arm_const import (UC_ARM_REG_PC, UC_ARM_REG_LR, UC_ARM_REG_R0)
+mtkclient\src\stage1\emulate_payload.py:11:import os
+mtkclient\src\stage1\emulate_payload.py:12:from struct import pack
+mtkclient\src\stage1\emulate_payload.py:13:from binascii import hexlify
+mtkclient\src\stage1\emulate_payload.py:247:        reg["SP"] = 0x100A00 + 0x20000  # Stack from start
+mtkclient\Tools\brom_to_offs.py:3:import sys
+mtkclient\Tools\brom_to_offs.py:4:from binascii import unhexlify
+mtkclient\Tools\brom_to_offs.py:5:from struct import unpack
+mtkclient\Tools\brom_to_offs.py:440:    import os
+mtkclient\Tools\da_parser.py:3:import os
+mtkclient\Tools\da_parser.py:4:import sys
+mtkclient\Tools\da_parser.py:5:from struct import unpack
+mtkclient\Tools\da_parser.py:6:import inspect
+mtkclient\Tools\da_parser.py:10:from mtkclient.config.payloads import PathConfig
+mtkclient\Tools\da_parser.py:11:from mtkclient.Library.utils import read_object
+mtkclient\Tools\da_parser.py:12:from mtkclient.Library.utils import find_binary
+mtkclient\Tools\da_parser.py:36:efusedb = {}
+mtkclient\Tools\da_parser.py:122:                idx = tt.find(bytes.fromhex("70BB442D27D244A7"))
+mtkclient\Tools\da_parser.py:123:                # idx = tt.find(bytes.fromhex("01279360D36013615361"))
+mtkclient\Tools\da_parser.py:128:                idx2 = tt.find(bytes.fromhex("03 29 0D D9 07 4B 1B 68 03 60"))
+mtkclient\Tools\da_parser.py:130:                    efusedb[da[0]["hw_code"]] = hex(int.from_bytes(tt[idx2 + 0x24:idx2 + 0x28], 'little') & 0xFFFFF000)
+mtkclient\Tools\da_parser.py:132:                    if not da[0]["hw_code"] in efusedb:
+mtkclient\Tools\da_parser.py:133:                        efusedb[da[0]["hw_code"]] = "None"
+mtkclient\Tools\da_parser.py:136:    sorted_dict = dict(sorted(efusedb.items()))
+mtkclient\Tools\da_parser.py:138:        print(f"[{hex(hwcode)}] efuse_addr = {efusedb[hwcode]}")
+mtkclient\Tools\decode.py:3:from struct import pack
+mtkclient\Tools\decode.py:4:from binascii import hexlify
+mtkclient\Tools\emulate_preloader.py:4:import logging
+mtkclient\Tools\emulate_preloader.py:5:from unicorn import (Uc, UC_MEM_WRITE, UC_MEM_READ, UC_MEM_FETCH, UC_MEM_READ_UNMAPPED,
+mtkclient\Tools\emulate_preloader.py:9:from unicorn.arm_const import (UC_ARM_REG_PC, UC_ARM_REG_LR, UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3,
+mtkclient\Tools\emulate_preloader.py:12:import os
+mtkclient\Tools\emulate_preloader.py:13:from struct import pack
+mtkclient\Tools\emulate_preloader.py:14:from binascii import hexlify
+mtkclient\Tools\emulate_preloader.py:16:# from emu_config.payload_config import br
+mtkclient\Tools\emulate_preloader.py:234:    reg["SP"] = 0x2001D4  # Stack from start
+mtkclient\Tools\enc_test.py:1:from Cryptodome.Cipher import AES
+mtkclient\Tools\enc_test.py:2:from struct import unpack, pack
+mtkclient\Tools\enc_test.py:3:from binascii import hexlify
+mtkclient\Tools\enc_test.py:62:preloader_key = bytes.fromhex(
+mtkclient\Tools\enc_test.py:67:seed = bytearray(bytes.fromhex("CEBEA8E5DC1A43A0F0AE425F67AF42047471F1D4B751362F39AE8A5E8BDA0C4C"))
+mtkclient\Tools\get_preloader_values.py:2:import os
+mtkclient\Tools\get_preloader_values.py:3:from struct import unpack, pack
+mtkclient\Tools\nb0extract.py:2:import sys
+mtkclient\Tools\nb0extract.py:3:import os
+mtkclient\Tools\nb0extract.py:4:from struct import unpack
+mtkclient\Tools\patch_legacy.py:2:import sys
+mtkclient\Tools\patch_legacy.py:3:import hashlib
+mtkclient\Tools\patch_legacy.py:4:from mtkclient.Library.utils import find_binary
+mtkclient\Tools\patch_legacy.py:22:        pattern = bytes.fromhex(patchval[0])
+mtkclient\Tools\patch_legacy.py:25:            patch = bytes.fromhex(patchval[1])
+mtkclient\Tools\patch_preloader.py:2:import sys
+mtkclient\Tools\patch_preloader.py:3:import hashlib
+mtkclient\Tools\patch_preloader.py:4:from mtkclient.Library.utils import find_binary
+mtkclient\Tools\patch_preloader.py:22:        pattern = bytes.fromhex(patchval[0])
+mtkclient\Tools\patch_preloader.py:25:            patch = bytes.fromhex(patchval[1])
+mtkclient\Tools\preloader_emu_mmc.py:4:import os
+mtkclient\Tools\preloader_emu_mmc.py:5:import logging
+mtkclient\Tools\preloader_emu_mmc.py:6:from binascii import hexlify
+mtkclient\Tools\preloader_emu_mmc.py:7:from struct import pack, unpack
+mtkclient\Tools\preloader_emu_mmc.py:8:from mtkclient.Library.Connection.usblib import UsbClass
+mtkclient\Tools\preloader_emu_mmc.py:9:from mtkclient.Library.utils import LogBase
+mtkclient\Tools\preloader_emu_mmc.py:10:from mtkclient.Library.utils import print_progress
+mtkclient\Tools\preloader_emu_mmc.py:11:from unicorn import (Uc, UC_MEM_WRITE, UC_MEM_READ, UC_MEM_FETCH, UC_MEM_READ_UNMAPPED,
+mtkclient\Tools\preloader_emu_mmc.py:15:from unicorn.arm_const import (UC_ARM_REG_PC, UC_ARM_REG_LR, UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2,
+mtkclient\Tools\preloader_emu_mmc.py:150:            data = bytes.fromhex(data)
+mtkclient\Tools\preloader_emu_mmc.py:492:    def copy_from_user(regs):
+mtkclient\Tools\preloader_emu_mmc.py:497:        print("copy_from_user %08X" % pc)
+mtkclient\Tools\preloader_emu_mmc.py:525:    replace_function(0x70087E4C, copy_from_user)
+mtkclient\Tools\preloader_emu_mmc.py:542:    reg["SP"] = addr - 0x10  # Stack from start
+mtkclient\Tools\preloader_to_dram.py:2:import os
+mtkclient\Tools\preloader_to_dram.py:3:from struct import unpack
+mtkclient\Tools\preloader_to_dram.py:4:import sys
+mtkclient\Tools\rpmb_test.py:2:import hashlib
+mtkclient\Tools\rpmb_test.py:3:import hmac
+mtkclient\Tools\rpmb_test.py:5:rpmbframe = bytearray(bytes.fromhex(
+mtkclient\Tools\rpmb_test.py:19:rpmbkey_dxcc = bytes.fromhex('899cd7692b4777042c094476920f6b1bf88b303abca5e0e14464e034551a1f52')
+mtkclient\Tools\stage2.py:5:import os
+mtkclient\Tools\stage2.py:6:import sys
+mtkclient\Tools\stage2.py:7:import logging
+mtkclient\Tools\stage2.py:8:import time
+mtkclient\Tools\stage2.py:9:import argparse
+mtkclient\Tools\stage2.py:10:import hashlib
+mtkclient\Tools\stage2.py:11:from binascii import hexlify
+mtkclient\Tools\stage2.py:12:from struct import pack, unpack
+mtkclient\Tools\stage2.py:13:from mtkclient.Library.Connection.usblib import UsbClass
+mtkclient\Tools\stage2.py:14:from mtkclient.Library.utils import LogBase
+mtkclient\Tools\stage2.py:15:from mtkclient.Library.utils import Progress
+mtkclient\Tools\stage2.py:16:from mtkclient.Library.Hardware.hwcrypto import CryptoSetup, HwCrypto
+mtkclient\Tools\stage2.py:17:from mtkclient.config.mtk_config import MtkConfig
+mtkclient\Tools\stage2.py:18:from mtkclient.config.usb_ids import default_ids
+mtkclient\Tools\stage2.py:285:                data = bytes.fromhex(data)
+mtkclient\Tools\stage2.py:537:                             help='Read from / save to filename')
+mtkclient\Tools\stage2.py:545:                                  help='Read from / save to filename')
+mtkclient\Tools\stage2.py:553:                             help='Read from / save to filename')
+mtkclient\Tools\stage2.py:561:                              help='Read from / save to filename')
+mtkclient\Tools\stage2.py:676:                data = bytes.fromhex(args.data)
+mtkclient\Tools\stage2.py:677:            # otp_hisense=bytes.fromhex("486973656E736500000000000000000000000000000000000000000000000000")
+mtkclient\Tools\whitelist_parser.py:2:from struct import unpack
+mtk_gui.py:4:import sys
+mtk_gui.py:5:import time
+mtk_gui.py:6:import mock
+mtk_gui.py:7:import threading
+mtk_gui.py:8:import logging
+mtk_gui.py:9:import ctypes
+mtk_gui.py:10:from functools import partial
+mtk_gui.py:11:from PySide6.QtCore import Qt, QVariantAnimation, Signal, QObject, QSize, QTranslator, QLocale, QLibraryInfo, \
+mtk_gui.py:13:from PySide6.QtGui import QTextOption, QPixmap, QTransform, QIcon
+mtk_gui.py:14:from PySide6.QtWidgets import QMainWindow, QApplication, QWidget, QCheckBox, QVBoxLayout, QHBoxLayout, QLineEdit, \
+mtk_gui.py:17:from mtkclient.Library.mtk_class import Mtk
+mtk_gui.py:18:from mtkclient.Library.DA.mtk_da_handler import DaHandler
+mtk_gui.py:19:from mtkclient.Library.gpt import GptSettings
+mtk_gui.py:20:from mtkclient.Library.mtk_main import Main
+mtk_gui.py:21:from mtkclient.config.mtk_config import MtkConfig
+mtk_gui.py:23:from mtkclient.gui.readFlashPartitions import ReadFlashWindow
+mtk_gui.py:24:from mtkclient.gui.writeFlashPartitions import WriteFlashWindow
+mtk_gui.py:25:from mtkclient.gui.eraseFlashPartitions import EraseFlashWindow
+mtk_gui.py:26:from mtkclient.gui.toolsMenu import generateKeysMenu, UnlockMenu
+mtk_gui.py:27:from mtkclient.gui.toolkit import asyncThread, trap_exc_during_debug, convert_size, CheckBox, FDialog, TimeEstim
+mtk_gui.py:28:from mtkclient.config.payloads import PathConfig
+mtk_gui.py:29:from mtkclient.gui.main_gui import Ui_MainWindow
+mtk_gui.py:30:import os
+mtk_gui.py:280:        self.ui.writeselectfromdir.clicked.connect(self.writeflash.selectFiles)
+mtk_gui.py:551:    # Prevent thread from not being closed and call error end codes
+old_handshake.py:1:import usb.core
+old_handshake.py:2:import usb.util
+old_handshake.py:3:import time

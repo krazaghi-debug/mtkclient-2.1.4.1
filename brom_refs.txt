@@ -1,0 +1,83 @@
+.\mtkclient\config\brom_config.py:229:                 send_ptr=None, ctrl_buffer=(), cmd_handler=None, brom_register_access=None,
+.\mtkclient\config\brom_config.py:250:        self.brom_register_access = brom_register_access,
+.\mtkclient\config\brom_config.py:378:        brom_register_access=(0x40bd48, 0x40befc),
+.\mtkclient\config\brom_config.py:507:        brom_register_access=(0x40bd48, 0x40befc),
+.\mtkclient\config\brom_config.py:573:                       brom_register_access=(0xb8e0, 0xba94),
+.\mtkclient\config\brom_config.py:598:        brom_register_access=(0xa8d0, 0xaa84),
+.\mtkclient\config\brom_config.py:639:        brom_register_access=(0xa838, 0xa9ec),
+.\mtkclient\config\brom_config.py:662:                       brom_register_access=(0xb4ec, 0xb6a0),
+.\mtkclient\config\brom_config.py:687:        brom_register_access=(0x98cc, 0x9a94),
+.\mtkclient\config\brom_config.py:712:        brom_register_access=(0x98dc, 0x9aa4),
+.\mtkclient\config\brom_config.py:737:        brom_register_access=(0xe330, 0xe3e8),
+.\mtkclient\config\brom_config.py:781:        brom_register_access=(0x9be0, 0x9da8),
+.\mtkclient\config\brom_config.py:807:        brom_register_access=(0x993c, 0x9b04),
+.\mtkclient\config\brom_config.py:831:        brom_register_access=(0x9d4c, 0x9f14),
+.\mtkclient\config\brom_config.py:857:        brom_register_access=(0xa030, 0xa0e8),
+.\mtkclient\config\brom_config.py:883:        brom_register_access=(0xdc74, 0xdd2c),
+.\mtkclient\config\brom_config.py:909:        # brom_Register_access
+.\mtkclient\config\brom_config.py:935:        brom_register_access=(0xc0a0, 0xc158),
+.\mtkclient\config\brom_config.py:963:        brom_register_access=(0xda80, 0xdb38),
+.\mtkclient\config\brom_config.py:991:        brom_register_access=(0xc1d4, 0xc28c),
+.\mtkclient\config\brom_config.py:1019:        brom_register_access=(0xc598, 0xc650),
+.\mtkclient\config\brom_config.py:1047:        brom_register_access=(0xe2d0, 0xe388),
+.\mtkclient\config\brom_config.py:1085:                      brom_register_access=(0xe454, 0xe50c),
+.\mtkclient\config\brom_config.py:1113:        brom_register_access=(0xe9dc, 0xea94),
+.\mtkclient\config\brom_config.py:1139:                      brom_register_access=(0xe6ac, 0xe764),
+.\mtkclient\config\brom_config.py:1167:        brom_register_access=(0x9a60, 0x9c28),
+.\mtkclient\config\brom_config.py:1192:        brom_register_access=(0xa18c, 0xa354),
+.\mtkclient\config\brom_config.py:1218:        brom_register_access=(0xf9c0, 0xfa78),
+.\mtkclient\config\brom_config.py:1244:        brom_register_access=(0xe3e8, 0xe4a0),
+.\mtkclient\config\brom_config.py:1270:                      brom_register_access=(0xee6c, 0xef24),
+.\mtkclient\config\brom_config.py:1298:        brom_register_access=(0xee80, 0xef38),
+.\mtkclient\config\brom_config.py:1326:        brom_register_access=(0xecd8, 0xed90),
+.\mtkclient\config\brom_config.py:1354:        brom_register_access=(0xeb04, 0xebbc),
+.\mtkclient\config\brom_config.py:1383:        brom_register_access=(0xeba4, 0xec5c),
+.\mtkclient\config\brom_config.py:1411:        # brom_register_access=(0xeba4, 0xec5c),
+.\mtkclient\config\brom_config.py:1439:        # brom_register_access=(0xeba4, 0xec5c),
+.\mtkclient\config\brom_config.py:1467:        brom_register_access=(0xf99a, 0xfa0c),
+.\mtkclient\config\brom_config.py:1495:        # brom_register_access=(0xf99a, 0xfa0c),
+.\mtkclient\config\brom_config.py:1523:        # brom_register_access=(0xf99a, 0xfa0c),
+.\mtkclient\config\brom_config.py:1550:        brom_register_access=(0xb58c, 0xb740),
+.\mtkclient\config\brom_config.py:1572:        # brom_register_access
+.\mtkclient\config\brom_config.py:1598:        brom_register_access=(0xc400, 0xc5c8),
+.\mtkclient\config\brom_config.py:1622:                       brom_register_access=(0xd6f2, 0xd7ac),
+.\mtkclient\config\brom_config.py:1647:        brom_register_access=(0x13c18, 0x13d78),
+.\mtkclient\config\brom_config.py:1673:        brom_register_access=(0xa3b8, 0xa580),
+.\mtkclient\config\brom_config.py:1698:        brom_register_access=(0xa3b8, 0xa580),
+.\mtkclient\config\brom_config.py:1724:        # brom_register_access
+.\mtkclient\config\brom_config.py:1751:        brom_register_access=(0xd034, 0xd194),
+.\mtkclient\config\brom_config.py:1775:        # brom_register_access
+.\mtkclient\config\brom_config.py:1800:        brom_register_access=(0xbeb8, 0xc06c),
+.\mtkclient\config\brom_config.py:1823:        brom_register_access=(0xc298, 0xc3f8),
+.\mtkclient\config\brom_config.py:1846:        # brom_register_access
+.\mtkclient\Library\Exploit\kamakiri2.py:38:            self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\Exploit\kamakiri2.py:44:        if self.mtk.config.chipconfig.brom_register_access is not None:
+.\mtkclient\Library\Exploit\kamakiri2.py:45:            ptr_da = self.mtk.config.chipconfig.brom_register_access[0][1]
+.\mtkclient\Library\Exploit\kamakiri2.py:56:            return self.mtk.preloader.brom_register_access(address, length, data, check_result)
+.\mtkclient\Library\Exploit\kamakiri2.py:61:            return self.mtk.preloader.brom_register_access(address - 0x40, length, data, check_result)
+.\mtkclient\Library\Exploit\kamakiri2.py:118:                self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\Exploit\kamakiri2.py:126:            brom = bytearray(self.mtk.preloader.brom_register_access(0, 0x20000))
+.\mtkclient\Library\Exploit\kamakiri2.py:132:                self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\Exploit\kamakiri2.py:143:                    if (len(self.mtk.preloader.brom_register_access(0, 0x40))) == 0x40:
+.\mtkclient\Library\kamakiri.py:83:            self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\kamakiri.py:89:        if self.mtk.config.chipconfig.brom_register_access is not None:
+.\mtkclient\Library\kamakiri.py:90:            ptr_da = self.mtk.config.chipconfig.brom_register_access[0][1]
+.\mtkclient\Library\kamakiri.py:101:            return self.mtk.preloader.brom_register_access(address, length, data, check_result)
+.\mtkclient\Library\kamakiri.py:106:            return self.mtk.preloader.brom_register_access(address - 0x40, length, data, check_result)
+.\mtkclient\Library\kamakiri.py:191:                self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\kamakiri.py:199:            brom = bytearray(self.mtk.preloader.brom_register_access(0, 0x20000))
+.\mtkclient\Library\kamakiri.py:205:                self.mtk.preloader.brom_register_access(0, 1)
+.\mtkclient\Library\kamakiri.py:216:                    if (len(self.mtk.preloader.brom_register_access(0, 0x40))) == 0x40:
+.\mtkclient\Library\mtk_preloader.py:99:        brom_register_access = b"\xDA"
+.\mtkclient\Library\mtk_preloader.py:712:    def brom_register_access(self, address, length, data=None, check_status=True):
+.\mtkclient\Library\mtk_preloader.py:717:        if self.mtk.port.echo(self.Cmd.brom_register_access.value):
+.\mtkclient\Tools\brom_to_offs.py:347:        brom_register_access = None
+.\mtkclient\Tools\brom_to_offs.py:348:        brom_register_access_ptr = None
+.\mtkclient\Tools\brom_to_offs.py:351:            brom_register_access = base | pos2
+.\mtkclient\Tools\brom_to_offs.py:357:                brom_register_access_ptr = base | pos2
+.\mtkclient\Tools\brom_to_offs.py:358:                brom_register_access_ptr_offset = base | offset
+.\mtkclient\Tools\brom_to_offs.py:400:        if brom_register_access:
+.\mtkclient\Tools\brom_to_offs.py:401:            print("brom_register_access:\t\t\t\t\t\t0x%08X" % brom_register_access)
+.\mtkclient\Tools\brom_to_offs.py:422:        if brom_register_access_ptr:
+.\mtkclient\Tools\brom_to_offs.py:424:                f"brom_register_access_ptr:\t\t\t\t\t({hex(brom_register_access_ptr)}," +
+.\mtkclient\Tools\brom_to_offs.py:425:                f"{hex(brom_register_access_ptr_offset)}),")

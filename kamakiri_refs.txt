@@ -1,0 +1,57 @@
+.\mtkclient\config\brom_config.py:281:                       For kamakiri:
+.\mtkclient\config\brom_config.py:1654:        # description, device is patched against kamakiri
+.\mtkclient\config\mtk_config.py:45:            self.ptype = "kamakiri"
+.\mtkclient\config\mtk_config.py:47:            self.ptype = "kamakiri2"
+.\mtkclient\gui\main_gui.py:843:        self.copyrightInfo.setText(QCoreApplication.translate("MainWindow", u"<b>Made by:</b> Bjoern Kerler<br/><b>GUI by:</b> Geert-Jan Kreileman<br/><br/><b>Credits:</b><br/>kamakiri [xyzz]<br/>linecode exploit [chimera]<br/>Chaosmaster<br/>and all contributors</p>", None))
+.\mtkclient\Library\DA\xflash\xflash_lib.py:64:            from mtkclient.Library.Exploit.kamakiripl import KamakiriPl
+.\mtkclient\Library\DA\xflash\xflash_lib.py:65:            self.kamakiri_pl = KamakiriPl(self.mtk, loglevel)
+.\mtkclient\Library\DA\xflash\xflash_lib.py:66:            # self.kamakiri_pl = None
+.\mtkclient\Library\DA\xflash\xflash_lib.py:68:            self.kamakiri_pl = None
+.\mtkclient\Library\DA\xflash\xflash_lib.py:1056:                        # if self.kamakiri_pl is not None:
+.\mtkclient\Library\DA\xflash\xflash_lib.py:1057:                        #    self.kamakiri_pl.bypass2ndDA()
+.\mtkclient\Library\DA\xflash\xflash_lib.py:1120:            if (self.kamakiri_pl is not None and not self.mtk.config.chipconfig.damode == 6 and
+.\mtkclient\Library\DA\xflash\xflash_lib.py:1122:                self.kamakiri_pl.initbrom()
+.\mtkclient\Library\Exploit\kamakiri.py:15:class Kamakiri(Exploitation, metaclass=LogBase):
+.\mtkclient\Library\Exploit\kamakiri.py:29:            raise Exception("Kamakiri Payload is too large")
+.\mtkclient\Library\Exploit\kamakiri.py:137:        ptype = "kamakiri"
+.\mtkclient\Library\Exploit\kamakiri.py:160:        self.info("Kamakiri Run")
+.\mtkclient\Library\Exploit\kamakiri2.py:16:class Kamakiri2(Exploitation, metaclass=LogBase):
+.\mtkclient\Library\Exploit\kamakiri2.py:23:    def kamakiri2(self, addr):
+.\mtkclient\Library\Exploit\kamakiri2.py:64:            self.kamakiri2(a)
+.\mtkclient\Library\Exploit\kamakiri2.py:70:                self.kamakiri2(ptr_da - 6 + (4 - i))
+.\mtkclient\Library\Exploit\kamakiri2.py:75:                self.kamakiri2(ptr_da - 5 + (3 - i))
+.\mtkclient\Library\Exploit\kamakiri2.py:142:                self.kamakiri2(dump_ptr - 6 + (4 - i))
+.\mtkclient\Library\Exploit\kamakiri2.py:159:                    self.kamakiri2(address - 5 + (3 - i))
+.\mtkclient\Library\Exploit\kamakiri2.py:201:        ptype = "kamakiri2"
+.\mtkclient\Library\Exploit\kamakiri2.py:224:        self.info("Kamakiri Run")
+.\mtkclient\Library\Exploit\kamakiripl.py:13:class KamakiriPl(Exploitation, metaclass=LogBase):
+.\mtkclient\Library\exploit_handler.py:74:    def da_payload(self, payload, addr, forcekamakiri=True, exploittype=1):
+.\mtkclient\Library\exploit_handler.py:79:            forcekamakiri = False
+.\mtkclient\Library\exploit_handler.py:80:        if hassecurity or forcekamakiri:
+.\mtkclient\Library\kamakiri.py:13:class Kamakiri(metaclass=LogBase):
+.\mtkclient\Library\kamakiri.py:46:            raise Exception("Kamakiri Payload is too large")
+.\mtkclient\Library\kamakiri.py:72:    def kamakiri2(self, addr):
+.\mtkclient\Library\kamakiri.py:95:            self.kamakiri2(ptr_da + 8 - 3 + i)
+.\mtkclient\Library\kamakiri.py:100:                self.kamakiri2(ptr_da - 6 + (4 - i))
+.\mtkclient\Library\kamakiri.py:105:                self.kamakiri2(ptr_da - 5 + (3 - i))
+.\mtkclient\Library\kamakiri.py:124:    def payload(self, payload, addr, forcekamakiri=True, exploittype=1):
+.\mtkclient\Library\kamakiri.py:125:        if self.mtk.config.target_config["sla"] or self.mtk.config.target_config["daa"] or forcekamakiri:
+.\mtkclient\Library\kamakiri.py:132:                self.info("Trying kamakiri..")
+.\mtkclient\Library\kamakiri.py:137:                self.info("Trying kamakiri2..")
+.\mtkclient\Library\kamakiri.py:197:                self.kamakiri2(dump_ptr - 6 + (4 - i))
+.\mtkclient\Library\kamakiri.py:214:                    self.kamakiri2(address - 5 + (3 - i))
+.\mtkclient\Library\mtk.py:152:            self.error("Error on running kamakiri payload")
+.\mtkclient\Library\mtk_class.py:212:            self.error("Error on running kamakiri payload")
+.\mtkclient\Library\mtk_main.py:468:            self.info("Kamakiri / DA Bruteforce run")
+.\mtkclient\Library\mtk_preloader.py:729:                    raise RuntimeError("Kamakiri2 failed, cache issue :(")
+.\mtkclient\Library\mtk_preloader.py:733:                    raise RuntimeError("Kamakiri2 failed :(")
+.\mtkclient\Library\pltools.py:12:from mtkclient.Library.Exploit.kamakiri import Kamakiri
+.\mtkclient\Library\pltools.py:13:from mtkclient.Library.Exploit.kamakiri2 import Kamakiri2
+.\mtkclient\Library\pltools.py:48:        if self.config.ptype == "kamakiri":
+.\mtkclient\Library\pltools.py:49:            self.exploit = Kamakiri(mtk=self.mtk, loglevel=self.__logger.level)
+.\mtkclient\Library\pltools.py:50:        elif self.config.ptype == "kamakiri2":
+.\mtkclient\Library\pltools.py:51:            self.exploit = Kamakiri2(mtk=self.mtk, loglevel=self.__logger.level)
+.\mtkclient\Library\pltools.py:138:        if type(self.exploit) is Kamakiri or type(self.exploit) is Kamakiri2:
+.\mtkclient\Library\pltools.py:139:            self.info("Kamakiri / DA Run")
+.\mtkclient\Library\pltools.py:156:        if type(self.exploit) is Kamakiri or type(self.exploit) is Kamakiri2:
+.\mtkclient\Library\pltools.py:157:            self.info("Kamakiri / DA Run")

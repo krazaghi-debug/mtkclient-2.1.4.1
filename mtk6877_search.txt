@@ -1,0 +1,6 @@
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\config\brom_config.py:1309:    0x959: Chipconfig(
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\config\brom_config.py:1332:        dacode=0x6877,  # todo
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\config\brom_config.py:1333:        name="MT6877/MT6877V",
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\config\brom_config.py:1335:        loader="mt6877_payload.bin"
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\Library\Hardware\hwcrypto_sej.py:793:        NR15    MD5                 AES128-ECB              AES128-CBC              mt6877/6889/6833
+O:\at-5g\mtk-client\mtkclient-2.1.4.1\mtkclient\src\stage1\emu_config\payload_config.py:54:    "mt6877_886.bin":

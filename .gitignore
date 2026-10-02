@@ -1,0 +1,40 @@
+__pycache__/
+*.pyc
+.idea/
+DA_*.bin
+
+# Python build / package artifacts
+/dist/
+/build/
+/*.egg-info/
+/*.egg
+*.dist-info/
+
+# PyInstaller / Windows runtime binaries
+*.exe
+*.dll
+*.pyd
+*.pyd.disabled
+*.dll.disabled
+base_library.zip
+
+# Local MTK DA binaries
+mtkclient/Loader/MTK_DA_V5.bin
+mtkclient/Loader/MTK_DA_V6.bin
+mtkclient/Loader/MTK_AllInOne_DA*.bin*
+
+# Local/device-specific data
+auth/
+key/
+logs/
+hwparam.json
+imei_backup.bat
+
+# Local diagnostic / temporary files
+search.txt
+sendptr_refs.txt
+payload_search.txt
+payload_flow.txt
+mtkclient/Library/Auth/sla_keys.py
+/driver/
+libusb-1.0.dll.bak
